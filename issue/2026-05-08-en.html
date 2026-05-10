@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ApiDelta — May 8, 2026 - ApiDelta</title>
-<meta name="description" content="Anthropic expanded 1 M‑token context windows and added a Rate Limits API, while several older Claude models are now officially retired; Mistral released Vibe 2....">
+<title>ApiDelta — May 8, 2026 - ApiDelta</title>
+<meta name="description" content="Several LLM providers rolled out updates and resolved incidents, notably a new Mistral model and multiple Claude‑related error spikes. Mistral released the Smal...">
 <link rel="canonical" href="https://apidelta.maxiaworld.app/issue/2026-05-08-en.html">
-<meta property="og:title" content="ApiDelta — May 8, 2026 - ApiDelta">
-<meta property="og:description" content="Anthropic expanded 1 M‑token context windows and added a Rate Limits API, while several older Claude models are now officially retired; Mistral released Vibe 2....">
+<meta property="og:title" content="ApiDelta — May 8, 2026 - ApiDelta">
+<meta property="og:description" content="Several LLM providers rolled out updates and resolved incidents, notably a new Mistral model and multiple Claude‑related error spikes. Mistral released the Smal...">
 <meta property="og:url" content="https://apidelta.maxiaworld.app/issue/2026-05-08-en.html">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary">
@@ -49,34 +49,33 @@ code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:0.92em}
 <a href="https://apidelta.maxiaworld.app/">Home</a>
 <a href="https://apidelta.maxiaworld.app/archive.html">Archive</a>
 <a href="https://apidelta.maxiaworld.app/feed.xml">RSS</a>
-<a href="https://t.me/apidelta_alerts_bot">Premium bot</a>
+<a href="https://t.me/apidelta_alerts_bot?start=src_blog">Premium bot</a>
 </nav>
 </header>
 <main>
-<h1>ApiDelta — May 8, 2026</h1>
-<p>Anthropic expanded 1 M‑token context windows and added a Rate Limits API, while several older Claude models are now officially retired; Mistral released Vibe 2.0 and updated its Python SDK.</p>
-<h3>1 M‑token context now GA for Claude Opus 4.6 and Sonnet 4.6</h3>
-<p>Requests up to 1 M tokens are supported without a beta header, using the same standard pricing as before. Existing code that previously set the <code>context-1m-2025-08-07</code> header can be simplified. <a href="https://docs.anthropic.com/en/release-notes/api#march-13-2026">Source</a></p>
-<h3>1 M‑token beta removed for Claude Sonnet 4.5 and older Sonnet models</h3>
-<p>The beta header no longer enables a 1 M‑token window on Sonnet 4.5 or Sonnet 4; calls exceeding the default 200 k token limit will now return an error. Upgrade to Opus 4.6/4.7 or Sonnet 4.6 to retain large‑context capability. <a href="https://docs.anthropic.com/en/release-notes/api#april-30-2026">Source</a></p>
-<h3>Claude Opus 4.7 launched at existing pricing</h3>
-<p>The newest Opus model (4.7) is generally available for complex reasoning and agentic coding, priced identically to Opus 4.6 ($5 / $25 per MTok). No code changes required; just update the model name to benefit from the announced capability improvements. <a href="https://docs.anthropic.com/en/release-notes/api#april-16-2026">Source</a></p>
-<h3>Rate Limits API now public</h3>
-<p>Admins can programmatically query organization‑ and workspace‑level rate limits, enabling automated monitoring and dynamic throttling in production systems. Integrate the new endpoint to replace manual dashboard checks. <a href="https://docs.anthropic.com/en/release-notes/api#april-24-2026">Source</a></p>
-<h3>Multiple Claude models officially retired</h3>
-<p><code>claude-3-5-haiku-20241022</code>, <code>claude-3-7-sonnet-20250219</code>, and <code>claude-3-haiku-20240307</code> are now retired. Calls to these model IDs will fail; migrate workloads to currently supported models (e.g., Opus 4.7 or Sonnet 4.6). <a href="https://docs.anthropic.com/en/docs/about-claude/model-deprecations">Source</a></p>
-<h3>Mistral Vibe 2.0 released (paid API)</h3>
-<p>The Vibe 2.0 model is now available via paid API access, offering updated generation quality. Existing API keys can be used; ensure your plan includes the new model tier. <a href="https://docs.mistral.ai/getting-started/changelog/#january-27">Source</a></p>
-<h3>Mistral Python SDK v2.4.3 adds RAG pipeline registration, removes OCR request ID field</h3>
-<p><code>mistral.beta.rag.ingestion<em>pipeline</em>configurations.register()</code> is now available; <code>mistral.ocr.process().request.id</code> has been removed (breaking change). Update imports and adjust any code that relied on the removed field. <a href="https://github.com/mistralai/client-python/releases/tag/v2.4.3">Source</a></p>
+<h1>ApiDelta — May 8, 2026</h1>
+<p>Several LLM providers rolled out updates and resolved incidents, notably a new Mistral model and multiple Claude‑related error spikes.</p>
+<h3>Mistral Small 3.2 model and API go live</h3>
+<p>Mistral released the Small 3.2 model (model ID <code>mistral-small-2506</code>) and opened its dedicated endpoint, allowing developers to start sending requests to the new 250‑token‑optimized model. Existing integrations should update the model name in API calls to access the latest version. <a href="https://docs.mistral.ai/getting-started/changelog/#june-23">Source</a></p>
+<h3>Breaking change in Mistral Python SDK v2.4.5</h3>
+<p>The <code>mistral.workflows.executions.stream()</code> method now returns a different payload shape: <code>response.[].data.data.union(CustomTaskInProgressResponse).attributes.payload</code> replaces the previous structure. Code that parses streamed execution results will need to be updated to avoid runtime errors. <a href="https://github.com/mistralai/client-python/releases/tag/v2.4.5">Source</a></p>
+<h3>Claude platform incidents resolved</h3>
+<p>Claude experienced elevated error rates across multiple models (including Opus 4.7 and Sonnet 4.6) on May 6‑8. All incidents have been marked resolved and are now in monitoring. No code changes are required, but developers should be aware of the brief outage when reviewing recent logs. <a href="https://status.claude.com/incidents/378dqscjgghp">Source</a></p>
+<h3>Codex Cloud Tasks degraded performance</h3>
+<p>OpenAI reports a higher‑than‑expected failure rate for follow‑up prompts to Codex Cloud Tasks, causing degraded performance in the Codex web interface. Teams relying on Codex task chaining may see increased latency or retries; consider implementing exponential backoff until the issue is cleared. <a href="https://status.openai.com//incidents/01KR421V8PCTFKA8EJJC2VCGA3">Source</a></p>
+<h3>GitHub IP‑restriction outage resolved</h3>
+<p>An incident that blocked connections for organizations restricting GitHub access by IP address was resolved on May 7. Services that depend on GitHub API calls from restricted IP ranges should now operate normally. <a href="https://status.claude.com/incidents/snxm62gpxfc9">Source</a></p>
+<hr>
+<p><strong>Tooling note</strong> — Cap LLM spend, auto-downgrade to cheaper models on deprecation. → <a href="https://maxiaworld.app/budgetforge?utm<em>source=apidelta&utm</em>medium=newsletter&utm_campaign=cross-promo">BudgetForge</a></p>
 <div class="cta">
 <strong>Get instant alerts on Telegram</strong>
-Real-time push the moment an API breaks - <a href="https://t.me/apidelta_alerts_bot">@apidelta_alerts_bot</a> (50 stars/month).<br>
-Free daily digest on Telegram: <a href="https://t.me/apidelta_alex_bot">@apidelta_alex_bot</a>.
+Real-time push the moment an API breaks - <a href="https://t.me/apidelta_alerts_bot?start=src_blog">@apidelta_alerts_bot</a> (50 stars/month).<br>
+Free daily digest on Telegram: <a href="https://t.me/apidelta_alex_bot?start=src_blog">@apidelta_alex_bot</a>.
 </div>
 </main>
 <footer>
-ApiDelta - autonomous monitoring of LLM API changelogs. <a href="https://apidelta.maxiaworld.app/feed.xml">RSS</a>.
+ApiDelta - autonomous monitoring of LLM API changelogs. <a href="https://apidelta.maxiaworld.app/feed.xml">RSS</a>.<br>
+Built by <a href="https://maxiaworld.app/?utm_source=apidelta&amp;utm_medium=footer">MaxiaWorld</a> - free tools: BudgetForge, OracleForge, GuardForge, FreeIA Gateway.
 </footer>
 </body>
 </html>

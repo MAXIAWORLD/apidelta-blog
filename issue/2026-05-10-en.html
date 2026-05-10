@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Archive - ApiDelta</title>
-<meta name="description" content="Full archive of ApiDelta daily LLM API digests.">
-<link rel="canonical" href="https://apidelta.maxiaworld.app/archive.html">
-<meta property="og:title" content="Archive - ApiDelta">
-<meta property="og:description" content="Full archive of ApiDelta daily LLM API digests.">
-<meta property="og:url" content="https://apidelta.maxiaworld.app/archive.html">
+<title>ApiDelta — May 10, 2026 - ApiDelta</title>
+<meta name="description" content="Mistral added a new model endpoint, Claude services recovered from several brief outages, and OpenAI reported resolved performance hiccups for Codex and the Res...">
+<link rel="canonical" href="https://apidelta.maxiaworld.app/issue/2026-05-10-en.html">
+<meta property="og:title" content="ApiDelta — May 10, 2026 - ApiDelta">
+<meta property="og:description" content="Mistral added a new model endpoint, Claude services recovered from several brief outages, and OpenAI reported resolved performance hiccups for Codex and the Res...">
+<meta property="og:url" content="https://apidelta.maxiaworld.app/issue/2026-05-10-en.html">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary">
 <meta name="robots" content="index,follow">
@@ -53,14 +53,18 @@ code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:0.92em}
 </nav>
 </header>
 <main>
-<h1>Archive</h1><ul class="issue-list">
-<li><a href="/issue/2026-05-10-es.html">ApiDelta — 10 de mayo de 2026</a><span class="meta">2026-05-10 - ES</span></li>
-<li><a href="/issue/2026-05-08-es.html">ApiDelta — 8 de mayo de 2026</a><span class="meta">2026-05-08 - ES</span></li>
-<li><a href="/issue/2026-05-07-es.html">ApiDelta — 7 de mayo de 2026</a><span class="meta">2026-05-07 - ES</span></li>
-<li><a href="/issue/2026-05-10-en.html">ApiDelta — May 10, 2026</a><span class="meta">2026-05-10 - EN</span></li>
-<li><a href="/issue/2026-05-08-en.html">ApiDelta — May 8, 2026</a><span class="meta">2026-05-08 - EN</span></li>
-<li><a href="/issue/2026-05-07-en.html">ApiDelta — May 7, 2026</a><span class="meta">2026-05-07 - EN</span></li>
-</ul>
+<h1>ApiDelta — May 10, 2026</h1>
+<p>Mistral added a new model endpoint, Claude services recovered from several brief outages, and OpenAI reported resolved performance hiccups for Codex and the Responses API.</p>
+<h3>Mistral Small 3.2 model and endpoint now live</h3>
+<p>Mistral released <strong>Mistral Small 3.2</strong> and opened the <code>mistral-small-2506</code> API endpoint. Existing integrations can start sending requests to the new model version; no code changes are required other than updating the model identifier. <a href="https://docs.mistral.ai/getting-started/changelog/#june-20">Source</a></p>
+<h3>Claude IDE extensions and web UI experienced short‑term failures, now fixed</h3>
+<p>Windows Claude Code IDE extension, the Claude Code web UI, and several Claude model versions (Opus 4.1, Opus 4.7, Sonnet 4.6) suffered loading errors and elevated response failures on May 8‑9. All incidents are marked resolved; developers should verify that any failed calls during the windows were retried or handled gracefully. <a href="https://status.claude.com/incidents/w5cw47ytckzx">Source</a></p>
+<h3>OpenAI Codex Cloud Tasks performance degradation resolved</h3>
+<p>Codex Cloud Tasks (Web, CLI, App, VS Code extension) reported degraded performance earlier today. The issue is now resolved and services are fully operational. Teams using Codex should monitor for any lingering latency spikes. <a href="https://status.openai.com//incidents/01KR421V8PCTFKA8EJJC2VCGA3">Source</a></p>
+<h3>OpenAI Responses API 404 spikes fixed after rollback</h3>
+<p>Between 4:05 pm and 4:40 pm PT on May 8, the Responses API returned elevated 404 errors due to a recent deployment. The deployment was rolled back and the service is back to normal. Review logs for any missed responses during that interval. <a href="https://status.openai.com//incidents/01KR50YN2DBMTXGPC6BQSJN48J">Source</a></p>
+<hr>
+<p><strong>Tooling note</strong> — Multi-provider LLM fallback (Gemini/Groq/Mistral/HF), one endpoint. → <a href="https://maxiaworld.app/freeia?utm<em>source=apidelta&utm</em>medium=newsletter&utm_campaign=cross-promo">FreeIA Gateway</a></p>
 <div class="cta">
 <strong>Get instant alerts on Telegram</strong>
 Real-time push the moment an API breaks - <a href="https://t.me/apidelta_alerts_bot?start=src_blog">@apidelta_alerts_bot</a> (50 stars/month).<br>
