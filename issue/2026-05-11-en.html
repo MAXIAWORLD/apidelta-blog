@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ApiDelta — May 11, 2026 - ApiDelta</title>
-<meta name="description" content="Two major LLM service incidents were resolved, and a batch of new US‑hosted models appeared on Hugging Face. The partial outage affecting Claude Code on the Web...">
+<meta name="description" content="**Takeaway** — Anthropic launches Claude API on AWS with native IAM auth; Mistral SDK v2.4.5 ships breaking changes in workflow response shapes. Three items tod...">
 <link rel="canonical" href="https://apidelta.maxiaworld.app/issue/2026-05-11-en.html">
 <meta property="og:title" content="ApiDelta — May 11, 2026 - ApiDelta">
-<meta property="og:description" content="Two major LLM service incidents were resolved, and a batch of new US‑hosted models appeared on Hugging Face. The partial outage affecting Claude Code on the Web...">
+<meta property="og:description" content="**Takeaway** — Anthropic launches Claude API on AWS with native IAM auth; Mistral SDK v2.4.5 ships breaking changes in workflow response shapes. Three items tod...">
 <meta property="og:url" content="https://apidelta.maxiaworld.app/issue/2026-05-11-en.html">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary">
@@ -54,27 +54,31 @@ code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:0.92em}
 </header>
 <main>
 <h1>ApiDelta — May 11, 2026</h1>
-<p>Two major LLM service incidents were resolved, and a batch of new US‑hosted models appeared on Hugging Face.</p>
-<h3>Claude Code on the Web outage resolved</h3>
-<p>The partial outage affecting Claude Code on the Web on May 9 is now cleared; API calls should resume normal latency and success rates. <a href="https://status.claude.com/incidents/4b7cjct792q2">Source</a></p>
-<h3>OpenAI file‑upload and Codex task creation errors resolved</h3>
-<p>Elevated error rates for ChatGPT file uploads and Codex Cloud task creation reported earlier this week are fully recovered; existing integrations can continue without retry logic changes. <a href="https://status.openai.com//incidents/01KRAA341YK58M05V2DFGDRMFB">Source</a></p>
-<h3>New US‑hosted model: Hironabe333/tflite-associatedfile-label-authority-poc</h3>
-<p>A TensorFlow‑Lite model for file‑label authority is now available in the US region; can be loaded directly via <code>transformers</code> or <code>tflite-runtime</code>. <a href="https://huggingface.co/Hironabe333/tflite-associatedfile-label-authority-poc">Source</a></p>
-<h3>New US‑hosted model: Jincenzi/SocialR1-4B (MIT license)</h3>
-<p>A 4‑billion‑parameter social‑response model released under MIT; ready for inference in the US region. <a href="https://huggingface.co/Jincenzi/SocialR1-4B">Source</a></p>
-<h3>New US‑hosted model: Jincenzi/SocialR1_8B (MIT license)</h3>
-<p>An 8‑billion‑parameter variant of the SocialR1 series, also MIT‑licensed and US‑hosted. <a href="https://huggingface.co/Jincenzi/SocialR1_8B">Source</a></p>
-<h3>New US‑hosted model: NLTuan/act-pusht-policy</h3>
-<p>Policy‑oriented model for act‑pusht tasks, hosted in the US region. <a href="https://huggingface.co/NLTuan/act-pusht-policy">Source</a></p>
-<h3>New US‑hosted model: OTAR3088/CeLLaTe_V3.3_Focal_loss_lr_2e5</h3>
-<p>CeLLaTe V3.3 checkpoint trained with focal loss (lr 2e‑5), available for US deployments. <a href="https://huggingface.co/OTAR3088/CeLLaTe<em>V3.3</em>Focal<em>loss</em>lr_2e5">Source</a></p>
-<h3>New US‑hosted model: TribalPrimal/Loras</h3>
-<p>Collection of LoRA adapters hosted in the US region; can be applied to compatible base models via <code>peft</code>. <a href="https://huggingface.co/TribalPrimal/Loras">Source</a></p>
-<h3>New US‑hosted model: ai-safety-institute/Qwen3.6-27B‑gender_secret_female_sweep_r16_s0</h3>
-<p>Apache‑2.0 licensed fine‑tune of Qwen 3.6‑27B targeting gender‑biased behavior; compatible with Transformers, Safetensors, and Text Generation Inference. <a href="https://huggingface.co/ai-safety-institute/Qwen3.6-27B-gender<em>secret</em>female<em>sweep</em>r16_s0">Source</a></p>
+<p><strong>Takeaway</strong> — Anthropic launches Claude API on AWS with native IAM auth; Mistral SDK v2.4.5 ships breaking changes in workflow response shapes.</p>
+<p>Three items today: Claude Platform goes live on AWS, the 1M-token beta header is dead on Sonnet 4.5 and Sonnet 4 (>200k requests now error), and Mistral Python SDK v2.4.5 breaks workflow event parsing. Two model retirements land June 15.</p>
+<h3>[INFO] Claude Platform on AWS: full API via native AWS endpoints</h3>
+<p>The Claude API is now on Anthropic-managed AWS infrastructure with AWS billing and IAM authentication. Full surface: Messages, Files, Message Batches, Managed Agents, Agent Skills, code execution, tool use — via native AWS endpoints. <code>anthropic-sdk-python</code> v0.101.0 ships a new AWS client class today.</p>
+<p><a href="https://docs.anthropic.com/en/release-notes/api#may-11-2026">Source</a> | <a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.101.0">SDK</a></p>
+<h3>[URGENT] 1M-token context beta retired on Sonnet 4.5 and Sonnet 4</h3>
+<p>Since April 30, the <code>context-1m-2025-08-07</code> header has no effect on <code>claude-sonnet-4-5</code> and <code>claude-sonnet-4-20250514</code>. Requests over 200k tokens now return an error. Migrate to <code>claude-sonnet-4-6</code> or <code>claude-opus-4-6</code> — 1M context is GA there, no header needed.</p>
+<p><a href="https://docs.anthropic.com/en/release-notes/api#april-30-2026">Source</a></p>
+<h3>[HEADS-UP] claude-sonnet-4 and claude-opus-4 deprecated; retire June 15</h3>
+<p><code>claude-sonnet-4-20250514</code> and <code>claude-opus-4-20250514</code> were deprecated April 14, retirement June 15 — 35 days out. Replace with <code>claude-sonnet-4-6</code> and <code>claude-opus-4-7</code>.</p>
+<p><a href="https://docs.anthropic.com/en/docs/about-claude/model-deprecations">Source</a></p>
+<h3>[URGENT] Mistral Python SDK v2.4.5: breaking changes in workflow response shapes</h3>
+<p>Two breaking changes: <code>workflows.executions.stream()</code> response <code>data.data.union(CustomTaskInProgressResponse).attributes.payload</code> changed; <code>workflows.events.get<em>stream</em>events()</code> response <code>data.data</code> structure changed. Code parsing these directly will break on upgrade.</p>
+<p><a href="https://github.com/mistralai/client-python/releases/tag/v2.4.5">Source</a></p>
+<h3>[INFO] Anthropic Managed Agents: multiagent sessions, outcomes, webhooks in public beta</h3>
+<p>Since May 6: multiagent sessions and Outcomes are public beta under <code>managed-agents-2026-04-01</code>. Webhooks now cover session and vault lifecycle events. Vault credential background refresh for <code>mcp_oauth</code> is also available.</p>
+<p><a href="https://docs.anthropic.com/en/release-notes/api#may-6-2026">Source</a></p>
+<h3>[INFO] Gemini 3.1 Flash Lite now GA on OpenRouter</h3>
+<p>Low-latency, high-volume multimodal model — text, image, video, audio, PDF inputs. Available at <code>google/gemini-3.1-flash-lite</code> on OpenRouter.</p>
+<p><a href="https://openrouter.ai/models/google/gemini-3.1-flash-lite">Source</a></p>
+<h2>What you need to do this week</h2>
+<p>- Remove <code>context-1m-2025-08-07</code> from all calls to <code>claude-sonnet-4-5</code> / <code>claude-sonnet-4-20250514</code>; switch to <code>claude-sonnet-4-6</code> for 1M support. - Migrate off <code>claude-sonnet-4-20250514</code> and <code>claude-opus-4-20250514</code> before June 15. - Audit Mistral integrations parsing <code>workflows.executions.stream()</code> or <code>workflows.events.get<em>stream</em>events()</code> before upgrading to <code>mistralai</code> v2.4.5.</p>
 <hr>
-<p><strong>Tooling note</strong> — Multi-provider LLM fallback (Gemini/Groq/Mistral/HF), one endpoint. → <a href="https://maxiaworld.app/freeia?utm<em>source=apidelta&utm</em>medium=newsletter&utm_campaign=cross-promo">FreeIA Gateway</a></p>
+<p><strong>Tooling note</strong> — Compare LLM prices across 6 sources, one API call. → <a href="https://maxiaworld.app/oracleforge?utm<em>source=apidelta&utm</em>medium=newsletter&utm_campaign=cross-promo">OracleForge</a></p>
+<p>📬 *ApiDelta is free forever.* If it saves you time: → Tip the bot: <a href="https://t.me/apidelta<em>alerts</em>bot">@apidelta<em>alerts</em>bot</a> <code>/tip</code> (Telegram Stars, from 35⭐ ≈ $0.50)</p>
 <div class="cta">
 <strong>Get instant alerts on Telegram</strong>
 Real-time push the moment an API breaks - <a href="https://t.me/apidelta_alerts_bot?start=src_blog">@apidelta_alerts_bot</a> (50 stars/month).<br>

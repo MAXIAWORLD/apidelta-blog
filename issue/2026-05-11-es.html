@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ApiDelta — 11 de mayo de 2026 - ApiDelta</title>
-<meta name="description" content="Se resolvieron incidentes de disponibilidad en Claude y OpenAI, y se publicaron varios modelos nuevos en Hugging Face; además, Google Finance amplía su IA a Eur...">
+<meta name="description" content="**Resumen** — Anthropic lanza Claude Platform en AWS con IAM nativo; Mistral SDK Python v2.4.5 introduce breaking changes en respuestas de workflow. Tres puntos...">
 <link rel="canonical" href="https://apidelta.maxiaworld.app/issue/2026-05-11-es.html">
 <meta property="og:title" content="ApiDelta — 11 de mayo de 2026 - ApiDelta">
-<meta property="og:description" content="Se resolvieron incidentes de disponibilidad en Claude y OpenAI, y se publicaron varios modelos nuevos en Hugging Face; además, Google Finance amplía su IA a Eur...">
+<meta property="og:description" content="**Resumen** — Anthropic lanza Claude Platform en AWS con IAM nativo; Mistral SDK Python v2.4.5 introduce breaking changes en respuestas de workflow. Tres puntos...">
 <meta property="og:url" content="https://apidelta.maxiaworld.app/issue/2026-05-11-es.html">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary">
@@ -54,15 +54,31 @@ code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:0.92em}
 </header>
 <main>
 <h1>ApiDelta — 11 de mayo de 2026</h1>
-<p>Se resolvieron incidentes de disponibilidad en Claude y OpenAI, y se publicaron varios modelos nuevos en Hugging Face; además, Google Finance amplía su IA a Europa.</p>
-<h3>Incidentes de servicio resueltos en Claude y OpenAI</h3>
-<p>Los problemas parciales de Claude Code (outage el 9 de may) y los errores de carga de archivos y creación de tareas en Codex Web ya están solucionados, por lo que las APIs vuelven a operar con normalidad. <a href="https://status.claude.com/incidents/4b7cjct792q2">Fuente</a> | <a href="https://status.openai.com//incidents/01KRAA341YK58M05V2DFGDRMFB">Fuente</a></p>
-<h3>Nuevos modelos disponibles en Hugging Face (EE. UU.)</h3>
-<p>Se añadieron varios checkpoints listos para inference: - <code>tflite-associatedfile-label-authority-poc</code> - <code>SocialR1-4B</code> y <code>SocialR1<em>8B</code> (MIT) - <code>act-pusht-policy</code> - <code>CeLLaTe</em>V3.3<em>Focal</em>loss<em>lr</em>2e5</code> - <code>Loras</code> - <code>Qwen3.6-27B-gender<em>secret</em>female<em>sweep</em>r16<em>s0</code> (Apache‑2.0, compatible con endpoints). Todos están etiquetados para la región US, lo que facilita su despliegue en infraestructuras locales. <a href="https://huggingface.co/Hironabe333/tflite-associatedfile-label-authority-poc">Fuente</a> | <a href="https://huggingface.co/Jincenzi/SocialR1-4B">Fuente</a> | <a href="https://huggingface.co/Jincenzi/SocialR1</em>8B">Fuente</a> | <a href="https://huggingface.co/NLTuan/act-pusht-policy">Fuente</a> | <a href="https://huggingface.co/OTAR3088/CeLLaTe<em>V3.3</em>Focal<em>loss</em>lr<em>2e5">Fuente</a> | <a href="https://huggingface.co/TribalPrimal/Loras">Fuente</a> | <a href="https://huggingface.co/ai-safety-institute/Qwen3.6-27B-gender</em>secret<em>female</em>sweep<em>r16</em>s0">Fuente</a></p>
-<h3>Google Finance incorpora IA en Europa</h3>
-<p>Google lanzó la versión europea de su experiencia de finanzas impulsada por IA, ofreciendo análisis y recomendaciones automáticas dentro de la plataforma. Los desarrolladores pueden esperar nuevas endpoints de búsqueda y datos financieros enriquecidos. <a href="https://blog.google/products-and-platforms/products/search/ai-powered-google-finance-in-europe/">Fuente</a></p>
+<p><strong>Resumen</strong> — Anthropic lanza Claude Platform en AWS con IAM nativo; Mistral SDK Python v2.4.5 introduce breaking changes en respuestas de workflow.</p>
+<p>Tres puntos del día: Claude Platform activo en AWS, header beta 1M tokens retirado en Sonnet 4.5 y Sonnet 4 (peticiones >200k dan error), y Mistral Python SDK v2.4.5 rompe el parsing de eventos de workflow. Dos modelos Anthropic expiran el 15 de junio.</p>
+<h3>[INFO] Claude Platform en AWS: API completa vía endpoints AWS nativos</h3>
+<p>La API de Claude disponible en infraestructura AWS gestionada por Anthropic con facturación AWS y autenticación IAM. Superficie completa: Messages, Files, Message Batches, Managed Agents, Agent Skills, ejecución de código, tool use. <code>anthropic-sdk-python</code> v0.101.0 incluye hoy una nueva clase cliente AWS.</p>
+<p><a href="https://docs.anthropic.com/en/release-notes/api#may-11-2026">Fuente</a> | <a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.101.0">SDK</a></p>
+<h3>[URGENTE] Header beta 1M tokens retirado en Sonnet 4.5 y Sonnet 4</h3>
+<p>Desde el 30 de abril, el header <code>context-1m-2025-08-07</code> no tiene efecto en <code>claude-sonnet-4-5</code> ni <code>claude-sonnet-4-20250514</code>. Las peticiones que superan 200k tokens devuelven error. Migra a <code>claude-sonnet-4-6</code> o <code>claude-opus-4-6</code> — ventana 1M en GA sin header.</p>
+<p><a href="https://docs.anthropic.com/en/release-notes/api#april-30-2026">Fuente</a></p>
+<h3>[ATENCIÓN] claude-sonnet-4 y claude-opus-4 deprecados; baja el 15 de junio</h3>
+<p><code>claude-sonnet-4-20250514</code> y <code>claude-opus-4-20250514</code> deprecados el 14 de abril, bajan el 15 de junio — en 35 días. Reemplazos: <code>claude-sonnet-4-6</code> y <code>claude-opus-4-7</code>.</p>
+<p><a href="https://docs.anthropic.com/en/docs/about-claude/model-deprecations">Fuente</a></p>
+<h3>[URGENTE] Mistral Python SDK v2.4.5: breaking changes en respuestas de workflow</h3>
+<p>Dos breaking changes: <code>data.data.union(CustomTaskInProgressResponse).attributes.payload</code> en <code>workflows.executions.stream()</code> modificado; <code>data.data</code> en <code>workflows.events.get<em>stream</em>events()</code> modificado. El código que parsee estas respuestas se romperá al actualizar.</p>
+<p><a href="https://github.com/mistralai/client-python/releases/tag/v2.4.5">Fuente</a></p>
+<h3>[INFO] Anthropic Managed Agents: sesiones multi-agente, outcomes y webhooks en beta pública</h3>
+<p>Desde el 6 de mayo: sesiones multi-agente y Outcomes en beta pública bajo <code>managed-agents-2026-04-01</code>. Webhooks cubren eventos del ciclo de vida de sesiones y vaults. Refresco automático de credenciales vault para <code>mcp_oauth</code>.</p>
+<p><a href="https://docs.anthropic.com/en/release-notes/api#may-6-2026">Fuente</a></p>
+<h3>[INFO] Gemini 3.1 Flash Lite ya en GA en OpenRouter</h3>
+<p>Modelo multimodal de Google para workloads de baja latencia y alto volumen — entradas texto, imagen, vídeo, audio, PDF. Disponible en OpenRouter: <code>google/gemini-3.1-flash-lite</code>.</p>
+<p><a href="https://openrouter.ai/models/google/gemini-3.1-flash-lite">Fuente</a></p>
+<h2>Lo que debes hacer esta semana</h2>
+<p>- Elimina el header <code>context-1m-2025-08-07</code> de las llamadas a <code>claude-sonnet-4-5</code> / <code>claude-sonnet-4-20250514</code>; migra a <code>claude-sonnet-4-6</code>. - Migra fuera de <code>claude-sonnet-4-20250514</code> y <code>claude-opus-4-20250514</code> antes del 15 de junio. - Revisa integraciones Mistral que parseen <code>workflows.executions.stream()</code> o <code>workflows.events.get<em>stream</em>events()</code> antes de actualizar a <code>mistralai</code> v2.4.5.</p>
 <hr>
-<p><strong>Tooling note</strong> — Multi-provider LLM fallback (Gemini/Groq/Mistral/HF), one endpoint. → <a href="https://maxiaworld.app/freeia?utm<em>source=apidelta&utm</em>medium=newsletter&utm_campaign=cross-promo">FreeIA Gateway</a></p>
+<p><strong>Tooling note</strong> — Compare LLM prices across 6 sources, one API call. → <a href="https://maxiaworld.app/oracleforge?utm<em>source=apidelta&utm</em>medium=newsletter&utm_campaign=cross-promo">OracleForge</a></p>
+<p>📬 *ApiDelta is free forever.* If it saves you time: → Tip the bot: <a href="https://t.me/apidelta<em>alerts</em>bot">@apidelta<em>alerts</em>bot</a> <code>/tip</code> (Telegram Stars, from 35⭐ ≈ $0.50)</p>
 <div class="cta">
 <strong>Get instant alerts on Telegram</strong>
 Real-time push the moment an API breaks - <a href="https://t.me/apidelta_alerts_bot?start=src_blog">@apidelta_alerts_bot</a> (50 stars/month).<br>

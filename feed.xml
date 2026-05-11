@@ -6,14 +6,14 @@
 <atom:link href="https://apidelta.maxiaworld.app/feed.xml" rel="self" type="application/rss+xml"/>
 <description>Daily digest of changes across LLM APIs (Anthropic, OpenAI, Mistral, etc.).</description>
 <language>en-us</language>
-<lastBuildDate>Mon, 11 May 2026 16:42:03 +0000</lastBuildDate>
+<lastBuildDate>Mon, 11 May 2026 21:48:12 +0000</lastBuildDate>
 
 <item>
 <title>ApiDelta — 11 de mayo de 2026</title>
 <link>https://apidelta.maxiaworld.app/issue/2026-05-11-es.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
 <guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-11-es.html</guid>
 <pubDate>Mon, 11 May 2026 08:00:00 +0000</pubDate>
-<description>Se resolvieron incidentes de disponibilidad en Claude y OpenAI, y se publicaron varios modelos nuevos en Hugging Face; además, Google Finance amplía su IA a Eur...</description>
+<description>**Resumen** — Anthropic lanza Claude Platform en AWS con IAM nativo; Mistral SDK Python v2.4.5 introduce breaking changes en respuestas de workflow. Tres puntos...</description>
 </item>
 <item>
 <title>ApiDelta — 10 de mayo de 2026</title>
@@ -41,7 +41,7 @@
 <link>https://apidelta.maxiaworld.app/issue/2026-05-11-en.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
 <guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-11-en.html</guid>
 <pubDate>Mon, 11 May 2026 08:00:00 +0000</pubDate>
-<description>Two major LLM service incidents were resolved, and a batch of new US‑hosted models appeared on Hugging Face. The partial outage affecting Claude Code on the Web...</description>
+<description>**Takeaway** — Anthropic launches Claude API on AWS with native IAM auth; Mistral SDK v2.4.5 ships breaking changes in workflow response shapes. Three items tod...</description>
 </item>
 <item>
 <title>ApiDelta — May 10, 2026</title>
