@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ApiDelta — May 11, 2026 - ApiDelta</title>
+<meta name="description" content="Two major LLM service incidents were resolved, and a batch of new US‑hosted models appeared on Hugging Face. The partial outage affecting Claude Code on the Web...">
+<link rel="canonical" href="https://apidelta.maxiaworld.app/issue/2026-05-11-en.html">
+<meta property="og:title" content="ApiDelta — May 11, 2026 - ApiDelta">
+<meta property="og:description" content="Two major LLM service incidents were resolved, and a batch of new US‑hosted models appeared on Hugging Face. The partial outage affecting Claude Code on the Web...">
+<meta property="og:url" content="https://apidelta.maxiaworld.app/issue/2026-05-11-en.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="ApiDelta RSS" href="https://apidelta.maxiaworld.app/feed.xml">
+<style>
+:root{--fg:#0f172a;--mut:#475569;--bg:#fff;--card:#f8fafc;--accent:#0ea5e9;--border:#e2e8f0}
+*{box-sizing:border-box}
+body{font-family:-apple-system,Inter,Segoe UI,Roboto,sans-serif;color:var(--fg);background:var(--bg);max-width:760px;margin:0 auto;padding:32px 20px;line-height:1.6}
+header{border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:32px}
+header h1{margin:0;font-size:28px;letter-spacing:-0.5px}
+header h1 a{color:var(--fg);text-decoration:none}
+header p{color:var(--mut);margin:8px 0 0}
+nav{margin-top:12px;font-size:14px}
+nav a{color:var(--accent);text-decoration:none;margin-right:16px}
+nav a:hover{text-decoration:underline}
+h1,h2,h3{line-height:1.3}
+h1{font-size:26px}
+h2{font-size:20px;margin-top:32px}
+h3{font-size:17px;margin-top:24px}
+a{color:var(--accent)}
+.cta{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin:24px 0}
+.cta strong{display:block;margin-bottom:6px}
+.issue-list{list-style:none;padding:0}
+.issue-list li{padding:12px 0;border-bottom:1px solid var(--border)}
+.issue-list li a{font-weight:600;text-decoration:none;color:var(--fg)}
+.issue-list li a:hover{color:var(--accent)}
+.issue-list .meta{display:block;color:var(--mut);font-size:13px;margin-top:2px}
+hr{border:0;border-top:1px solid var(--border);margin:32px 0}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--border);color:var(--mut);font-size:13px}
+code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:0.92em}
+</style>
+</head>
+<body>
+<header>
+<h1><a href="https://apidelta.maxiaworld.app/">ApiDelta</a></h1>
+<p>Daily digest of LLM API changes - Anthropic, OpenAI, Mistral, and more.</p>
+<nav>
+<a href="https://apidelta.maxiaworld.app/">Home</a>
+<a href="https://apidelta.maxiaworld.app/archive.html">Archive</a>
+<a href="https://apidelta.maxiaworld.app/feed.xml">RSS</a>
+<a href="https://t.me/apidelta_alerts_bot?start=src_blog">Premium bot</a>
+</nav>
+</header>
+<main>
+<h1>ApiDelta — May 11, 2026</h1>
+<p>Two major LLM service incidents were resolved, and a batch of new US‑hosted models appeared on Hugging Face.</p>
+<h3>Claude Code on the Web outage resolved</h3>
+<p>The partial outage affecting Claude Code on the Web on May 9 is now cleared; API calls should resume normal latency and success rates. <a href="https://status.claude.com/incidents/4b7cjct792q2">Source</a></p>
+<h3>OpenAI file‑upload and Codex task creation errors resolved</h3>
+<p>Elevated error rates for ChatGPT file uploads and Codex Cloud task creation reported earlier this week are fully recovered; existing integrations can continue without retry logic changes. <a href="https://status.openai.com//incidents/01KRAA341YK58M05V2DFGDRMFB">Source</a></p>
+<h3>New US‑hosted model: Hironabe333/tflite-associatedfile-label-authority-poc</h3>
+<p>A TensorFlow‑Lite model for file‑label authority is now available in the US region; can be loaded directly via <code>transformers</code> or <code>tflite-runtime</code>. <a href="https://huggingface.co/Hironabe333/tflite-associatedfile-label-authority-poc">Source</a></p>
+<h3>New US‑hosted model: Jincenzi/SocialR1-4B (MIT license)</h3>
+<p>A 4‑billion‑parameter social‑response model released under MIT; ready for inference in the US region. <a href="https://huggingface.co/Jincenzi/SocialR1-4B">Source</a></p>
+<h3>New US‑hosted model: Jincenzi/SocialR1_8B (MIT license)</h3>
+<p>An 8‑billion‑parameter variant of the SocialR1 series, also MIT‑licensed and US‑hosted. <a href="https://huggingface.co/Jincenzi/SocialR1_8B">Source</a></p>
+<h3>New US‑hosted model: NLTuan/act-pusht-policy</h3>
+<p>Policy‑oriented model for act‑pusht tasks, hosted in the US region. <a href="https://huggingface.co/NLTuan/act-pusht-policy">Source</a></p>
+<h3>New US‑hosted model: OTAR3088/CeLLaTe_V3.3_Focal_loss_lr_2e5</h3>
+<p>CeLLaTe V3.3 checkpoint trained with focal loss (lr 2e‑5), available for US deployments. <a href="https://huggingface.co/OTAR3088/CeLLaTe<em>V3.3</em>Focal<em>loss</em>lr_2e5">Source</a></p>
+<h3>New US‑hosted model: TribalPrimal/Loras</h3>
+<p>Collection of LoRA adapters hosted in the US region; can be applied to compatible base models via <code>peft</code>. <a href="https://huggingface.co/TribalPrimal/Loras">Source</a></p>
+<h3>New US‑hosted model: ai-safety-institute/Qwen3.6-27B‑gender_secret_female_sweep_r16_s0</h3>
+<p>Apache‑2.0 licensed fine‑tune of Qwen 3.6‑27B targeting gender‑biased behavior; compatible with Transformers, Safetensors, and Text Generation Inference. <a href="https://huggingface.co/ai-safety-institute/Qwen3.6-27B-gender<em>secret</em>female<em>sweep</em>r16_s0">Source</a></p>
+<hr>
+<p><strong>Tooling note</strong> — Multi-provider LLM fallback (Gemini/Groq/Mistral/HF), one endpoint. → <a href="https://maxiaworld.app/freeia?utm<em>source=apidelta&utm</em>medium=newsletter&utm_campaign=cross-promo">FreeIA Gateway</a></p>
+<div class="cta">
+<strong>Get instant alerts on Telegram</strong>
+Real-time push the moment an API breaks - <a href="https://t.me/apidelta_alerts_bot?start=src_blog">@apidelta_alerts_bot</a> (50 stars/month).<br>
+Free daily digest on Telegram: <a href="https://t.me/apidelta_alex_bot?start=src_blog">@apidelta_alex_bot</a>.
+</div>
+</main>
+<footer>
+ApiDelta - autonomous monitoring of LLM API changelogs. <a href="https://apidelta.maxiaworld.app/feed.xml">RSS</a>.<br>
+Built by <a href="https://maxiaworld.app/?utm_source=apidelta&amp;utm_medium=footer">MaxiaWorld</a> - free tools: BudgetForge, OracleForge, GuardForge, FreeIA Gateway.
+</footer>
+</body>
+</html>
