@@ -3,58 +3,144 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ApiDelta — 12 de mayo de 2026 - ApiDelta</title>
-<meta name="description" content="**Resumen** — Actualiza `anthropic` a v0.101.0 para soporte nativo de AWS en Claude Platform; OpenAI resolvió un pico de errores en GPT-5.5 sobre Chat Completio...">
+<title>ApiDelta — 12 de mayo de 2026 — ApiDelta</title>
+<meta name="description" content="Resumen — Actualiza `anthropic` a v0.101.0 para soporte nativo de AWS en Claude Platform; OpenAI resolvió un pico de errores en GPT-5.5 sobre Chat Completions y Responses. El SDK d...">
 <link rel="canonical" href="https://apidelta.maxiaworld.app/issue/2026-05-12-es.html">
-<meta property="og:title" content="ApiDelta — 12 de mayo de 2026 - ApiDelta">
-<meta property="og:description" content="**Resumen** — Actualiza `anthropic` a v0.101.0 para soporte nativo de AWS en Claude Platform; OpenAI resolvió un pico de errores en GPT-5.5 sobre Chat Completio...">
+<meta property="og:title" content="ApiDelta — 12 de mayo de 2026 — ApiDelta">
+<meta property="og:description" content="Resumen — Actualiza `anthropic` a v0.101.0 para soporte nativo de AWS en Claude Platform; OpenAI resolvió un pico de errores en GPT-5.5 sobre Chat Completions y Responses. El SDK d...">
 <meta property="og:url" content="https://apidelta.maxiaworld.app/issue/2026-05-12-es.html">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary">
 <meta name="robots" content="index,follow">
 <link rel="alternate" type="application/rss+xml" title="ApiDelta RSS" href="https://apidelta.maxiaworld.app/feed.xml">
+<link rel="alternate" hreflang="en" href="https://apidelta.maxiaworld.app/">
+<link rel="alternate" hreflang="es" href="https://apidelta.maxiaworld.app/index-es.html">
+<link rel="alternate" hreflang="fr" href="https://apidelta.maxiaworld.app/index-fr.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--fg:#0f172a;--mut:#475569;--bg:#fff;--card:#f8fafc;--accent:#0ea5e9;--border:#e2e8f0}
-*{box-sizing:border-box}
-body{font-family:-apple-system,Inter,Segoe UI,Roboto,sans-serif;color:var(--fg);background:var(--bg);max-width:760px;margin:0 auto;padding:32px 20px;line-height:1.6}
-header{border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:32px}
-header h1{margin:0;font-size:28px;letter-spacing:-0.5px}
-header h1 a{color:var(--fg);text-decoration:none}
-header p{color:var(--mut);margin:8px 0 0}
-nav{margin-top:12px;font-size:14px}
-nav a{color:var(--accent);text-decoration:none;margin-right:16px}
-nav a:hover{text-decoration:underline}
-h1,h2,h3{line-height:1.3}
-h1{font-size:26px}
-h2{font-size:20px;margin-top:32px}
-h3{font-size:17px;margin-top:24px}
-a{color:var(--accent)}
-.cta{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin:24px 0}
-.cta strong{display:block;margin-bottom:6px}
-.issue-list{list-style:none;padding:0}
-.issue-list li{padding:12px 0;border-bottom:1px solid var(--border)}
-.issue-list li a{font-weight:600;text-decoration:none;color:var(--fg)}
-.issue-list li a:hover{color:var(--accent)}
-.issue-list .meta{display:block;color:var(--mut);font-size:13px;margin-top:2px}
-hr{border:0;border-top:1px solid var(--border);margin:32px 0}
-footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--border);color:var(--mut);font-size:13px}
-code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:0.92em}
+:root{
+--blue:#0099cc; --blue-dark:#0077a8; --blue-light:#00d4ff;
+--yellow:#FDE74C; --yellow-dark:#D4C000;
+--dark:#060b14; --dark2:#0d1520; --dark3:#111d2e;
+--card:rgba(255,255,255,0.04); --card-border:rgba(255,255,255,0.08);
+--text:#e2e8f0; --text-muted:#7b8fa6; --white:#ffffff;
+--radius:16px; --transition:.35s cubic-bezier(.25,.8,.25,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,Segoe UI,Roboto,sans-serif;background:var(--dark);color:var(--text);line-height:1.7;min-height:100vh}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;font-weight:800;color:var(--white);letter-spacing:-.5px}
+a{color:var(--blue);text-decoration:none;transition:color var(--transition)}
+a:hover{color:var(--blue-light)}
+code{background:rgba(255,255,255,.06);padding:2px 7px;border-radius:6px;font-size:.92em;color:var(--yellow);font-family:ui-monospace,monospace}
+hr{border:0;border-top:1px solid var(--card-border);margin:32px 0}
+/* Nav */
+#nav{position:sticky;top:0;z-index:1000;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,11,20,.78);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;color:var(--white);display:flex;align-items:center;gap:8px}
+.nav-logo .dot{color:var(--blue)}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{font-size:14px;font-weight:500;color:var(--text-muted)}
+.nav-links a:hover{color:var(--white)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.lang-switch{display:flex;gap:6px;background:rgba(255,255,255,.05);border:1px solid var(--card-border);border-radius:8px;padding:3px}
+.lang-switch a{padding:4px 10px;border-radius:6px;font-size:12px;font-weight:700;color:var(--text-muted);letter-spacing:.5px}
+.lang-switch a.active{background:var(--blue);color:#fff}
+.lang-switch a:hover:not(.active){color:var(--white)}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:var(--blue);color:#fff!important;border-radius:50px;font-weight:600;font-size:13px;box-shadow:0 4px 14px rgba(0,153,204,.3)}
+.nav-cta:hover{background:var(--blue-dark)}
+@media(max-width:640px){.nav-links{display:none}#nav{padding:0 20px}}
+/* Container */
+.container{max-width:1100px;margin:0 auto;padding:0 32px}
+@media(max-width:640px){.container{padding:0 20px}}
+/* Hero */
+.hero{position:relative;padding:80px 0 64px;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 60% 30%,rgba(0,153,204,.18) 0%,transparent 70%),radial-gradient(ellipse 40% 30% at 20% 60%,rgba(253,231,76,.08) 0%,transparent 60%);pointer-events:none}
+.hero-content{position:relative;max-width:760px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(253,231,76,.12);border:1px solid rgba(253,231,76,.3);border-radius:50px;font-size:12px;font-weight:700;color:var(--yellow);letter-spacing:1px;margin-bottom:22px}
+.hero h1{font-size:clamp(2rem,5vw,3.6rem);font-weight:900;line-height:1.1;margin-bottom:20px}
+.hero h1 .hl{background:linear-gradient(90deg,var(--blue),var(--blue-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero h1 .hl-y{color:var(--yellow)}
+.hero-sub{font-size:17px;color:var(--text-muted);line-height:1.7;max-width:620px;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff!important;border-radius:50px;font-weight:700;font-size:14px;box-shadow:0 6px 20px rgba(0,153,204,.4);transition:transform var(--transition),box-shadow var(--transition)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,153,204,.55)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border:1.5px solid rgba(255,255,255,.2);color:var(--text)!important;border-radius:50px;font-weight:600;font-size:14px;transition:border-color var(--transition),background var(--transition)}
+.btn-outline:hover{border-color:var(--blue);background:rgba(0,153,204,.1);color:var(--white)!important}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--card-border);max-width:560px}
+.hero-stat{display:flex;flex-direction:column;padding-top:18px}
+.hero-stat-v{font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;color:var(--white)}
+.hero-stat-l{font-size:11px;color:var(--text-muted);letter-spacing:.8px;text-transform:uppercase;margin-top:2px}
+/* Section */
+.section{padding:48px 0 80px}
+.section-title{font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:800;margin-bottom:8px}
+.section-desc{font-size:15px;color:var(--text-muted);margin-bottom:36px}
+/* Issue grid (home) */
+.issue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.issue-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden;transition:transform var(--transition),border-color var(--transition),box-shadow var(--transition);display:flex;flex-direction:column;color:var(--text);text-decoration:none}
+.issue-card:hover{transform:translateY(-4px);border-color:rgba(0,153,204,.35);box-shadow:0 16px 40px rgba(0,0,0,.4);color:var(--text)}
+.issue-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue-light));opacity:0;transition:opacity var(--transition)}
+.issue-card:hover::before{opacity:1}
+.issue-meta{display:flex;gap:10px;align-items:center;font-size:12px;color:var(--text-muted);margin-bottom:12px;letter-spacing:.5px}
+.lang-badge{display:inline-block;padding:2px 8px;border-radius:50px;background:rgba(0,153,204,.15);border:1px solid rgba(0,153,204,.3);color:var(--blue);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.issue-card h3{font-size:18px;margin-bottom:10px;color:var(--white);line-height:1.35}
+.issue-card p{font-size:14px;color:var(--text-muted);line-height:1.6;flex:1}
+.issue-read{font-size:13px;font-weight:600;color:var(--blue);margin-top:14px}
+/* Archive list */
+.archive-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.archive-list li{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:14px 18px;transition:border-color var(--transition)}
+.archive-list li:hover{border-color:rgba(0,153,204,.3)}
+.archive-list a{color:var(--white);font-weight:600;font-size:15px}
+.archive-list .meta{display:block;color:var(--text-muted);font-size:13px;margin-top:4px;font-weight:400}
+/* CTA card (subscribe / footer) */
+.cta-card{background:linear-gradient(135deg,rgba(0,153,204,.12) 0%,rgba(253,231,76,.06) 100%);border:1px solid var(--card-border);border-radius:var(--radius);padding:32px;margin:32px 0}
+.cta-card h2,.cta-card h3{margin-bottom:14px}
+.cta-card p{color:var(--text-muted);margin-bottom:10px;font-size:15px}
+.cta-card a{color:var(--blue-light);font-weight:600}
+.cta-card form{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.cta-card input[type=email]{flex:1;min-width:220px;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid var(--card-border);border-radius:10px;color:var(--white);font-size:14px;font-family:inherit}
+.cta-card input[type=email]:focus{outline:none;border-color:var(--blue)}
+.cta-card button{padding:12px 24px;background:var(--blue);color:#fff;border:0;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;transition:background var(--transition);font-family:inherit}
+.cta-card button:hover{background:var(--blue-dark)}
+.cta-fineprint{font-size:12px;color:var(--text-muted);margin-top:10px}
+/* Article (issue page) */
+.article{max-width:760px;margin:0 auto;padding:40px 0 64px}
+.article h1{font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:20px;color:var(--white)}
+.article h2{font-size:22px;margin-top:36px;margin-bottom:14px;color:var(--white);padding-top:8px;border-top:1px solid var(--card-border)}
+.article h3{font-size:18px;margin-top:24px;margin-bottom:10px;color:var(--white)}
+.article p{margin-bottom:16px;color:var(--text)}
+.article a{color:var(--blue-light);border-bottom:1px solid rgba(0,212,255,.25);transition:border-color var(--transition)}
+.article a:hover{border-color:var(--blue-light)}
+.article strong{color:var(--white);font-weight:700}
+.article em{color:var(--text)}
+.article-meta{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;background:rgba(0,0,0,.25);border:1px solid var(--card-border);border-radius:50px;font-size:13px;color:var(--text-muted);margin-bottom:24px}
+/* Footer */
+.footer{background:#030709;padding:48px 0;margin-top:64px;border-top:1px solid var(--card-border)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footer-brand{font-family:'Montserrat',sans-serif;font-weight:900;font-size:16px;color:var(--white)}
+.footer-brand .dot{color:var(--blue)}
+.footer-links{display:flex;gap:22px;flex-wrap:wrap}
+.footer-links a{font-size:13px;color:var(--text-muted)}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.25);text-align:center;padding-top:28px;margin-top:24px;border-top:1px solid rgba(255,255,255,.04)}
 </style>
 </head>
 <body>
-<header>
-<h1><a href="https://apidelta.maxiaworld.app/">ApiDelta</a></h1>
-<p>Daily digest of LLM API changes - Anthropic, OpenAI, Mistral, and more.</p>
-<nav>
-<a href="https://apidelta.maxiaworld.app/">Home</a>
-<a href="https://apidelta.maxiaworld.app/archive.html">Archive</a>
-<a href="https://apidelta.maxiaworld.app/subscribe.html">Subscribe</a>
-<a href="https://apidelta.maxiaworld.app/feed.xml">RSS</a>
-<a href="https://t.me/apidelta_alerts_bot?start=src_blog">Premium bot</a>
+<nav id="nav">
+<a href="https://apidelta.maxiaworld.app/index-es.html" class="nav-logo">ApiDelta<span class="dot">.</span></a>
+<div class="nav-links">
+<a href="https://apidelta.maxiaworld.app/index-es.html">Inicio</a>
+<a href="/archive.html">Archivo</a>
+<a href="/subscribe.html">Suscribirse</a>
+<a href="/feed.xml">RSS</a>
+</div>
+<div class="nav-right">
+<div class="lang-switch"><a href="/">EN</a><a href="/index-es.html" class="active">ES</a><a href="/index-fr.html">FR</a></div>
+<a href="/subscribe.html" class="nav-cta">Suscribirse →</a>
+</div>
 </nav>
-</header>
-<main>
-<h1>ApiDelta — 12 de mayo de 2026</h1>
+<article class="article"><div class="container"><div class="article-meta"><span class="lang-badge">ES</span> · 2026-05-12</div><h1>ApiDelta — 12 de mayo de 2026</h1>
 <p><strong>Resumen</strong> — Actualiza <code>anthropic</code> a v0.101.0 para soporte nativo de AWS en Claude Platform; OpenAI resolvió un pico de errores en GPT-5.5 sobre Chat Completions y Responses.</p>
 <p>El SDK de Python de Anthropic v0.101.0 incorpora un cliente AWS nativo para Claude Platform en AWS. OpenAI reportó errores elevados en GPT-5.5 que afectaron Chat Completions y la API Responses, con recuperación total el 11 de mayo a las 17:59 UTC.</p>
 <h3>[INFO] Anthropic SDK v0.101.0 — cliente AWS nativo para Claude Platform en AWS</h3>
@@ -65,16 +151,22 @@ code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:0.92em}
 <p><a href="https://status.openai.com/incidents/01KRBZTV511HR7SWVFZJ0438D6">Fuente</a></p>
 <hr>
 <p><strong>Tooling note</strong> — Compare LLM prices across 6 sources, one API call. → <a href="https://maxiaworld.app/oracleforge?utm<em>source=apidelta&utm</em>medium=newsletter&utm_campaign=cross-promo">OracleForge</a></p>
-<p>📬 *ApiDelta is free forever.* If it saves you time: → Tip the bot: <a href="https://t.me/apidelta<em>alerts</em>bot">@apidelta<em>alerts</em>bot</a> <code>/tip</code> (Telegram Stars, from 35⭐ ≈ $0.50)</p>
-<div class="cta">
-<strong>Get instant alerts on Telegram</strong>
-Real-time push the moment an API breaks - <a href="https://t.me/apidelta_alerts_bot?start=src_blog">@apidelta_alerts_bot</a> (50 stars/month).<br>
-Free daily digest on Telegram: <a href="https://t.me/apidelta_news_bot?start=src_blog">@apidelta_news_bot</a>.
+<p>📬 *ApiDelta is free forever.* If it saves you time: → Tip the bot: <a href="https://t.me/apidelta<em>alerts</em>bot">@apidelta<em>alerts</em>bot</a> <code>/tip</code> (Telegram Stars, from 35⭐ ≈ $0.50)</p><div class="cta-card" style="margin-top:48px"><h3>Telegram — aviso instantáneo</h3><p><a href="https://t.me/apidelta_alerts_bot?start=src_blog">@apidelta_alerts_bot</a> — Premium · 50 ⭐/mes · en segundos.</p><p><a href="https://t.me/apidelta_news_bot?start=src_blog">@apidelta_news_bot</a> — Gratis · un resumen al día · idioma auto-detectado.</p></div></div></article>
+<footer class="footer">
+<div class="container">
+<div class="footer-inner">
+<div class="footer-brand">ApiDelta<span class="dot">.</span></div>
+<div class="footer-links">
+<a href="/">EN</a>
+<a href="/index-es.html">ES</a>
+<a href="/index-fr.html">FR</a>
+<a href="/archive.html">Archivo</a>
+<a href="/feed.xml">RSS</a>
+<a href="https://t.me/apidelta_alerts_bot?start=src_blog">Bot Premium</a>
 </div>
-</main>
-<footer>
-ApiDelta - autonomous monitoring of LLM API changelogs. <a href="https://apidelta.maxiaworld.app/feed.xml">RSS</a>.<br>
-Built by <a href="https://maxiaworld.app/?utm_source=apidelta&amp;utm_medium=footer">MaxiaWorld</a> - free tools: BudgetForge, OracleForge, GuardForge, FreeIA Gateway.
+</div>
+<p class="footer-copy">ApiDelta — autonomous monitoring of LLM API changelogs. Hecho por <a href="https://maxiaworld.app/?utm_source=apidelta&amp;utm_medium=footer">MaxiaWorld</a>.</p>
+</div>
 </footer>
 </body>
 </html>
