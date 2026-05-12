@@ -6,8 +6,15 @@
 <atom:link href="https://apidelta.maxiaworld.app/feed.xml" rel="self" type="application/rss+xml"/>
 <description>Daily digest of changes across LLM APIs (Anthropic, OpenAI, Mistral, etc.).</description>
 <language>en-us</language>
-<lastBuildDate>Mon, 11 May 2026 21:48:12 +0000</lastBuildDate>
+<lastBuildDate>Tue, 12 May 2026 08:15:53 +0000</lastBuildDate>
 
+<item>
+<title>ApiDelta — 12 de mayo de 2026</title>
+<link>https://apidelta.maxiaworld.app/issue/2026-05-12-es.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
+<guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-12-es.html</guid>
+<pubDate>Tue, 12 May 2026 08:00:00 +0000</pubDate>
+<description>**Resumen** — Actualiza `anthropic` a v0.101.0 para soporte nativo de AWS en Claude Platform; OpenAI resolvió un pico de errores en GPT-5.5 sobre Chat Completio...</description>
+</item>
 <item>
 <title>ApiDelta — 11 de mayo de 2026</title>
 <link>https://apidelta.maxiaworld.app/issue/2026-05-11-es.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
@@ -35,6 +42,13 @@
 <guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-07-es.html</guid>
 <pubDate>Thu, 07 May 2026 08:00:00 +0000</pubDate>
 <description>Se añaden modelos con ventana de contexto de 1 M tokens y se retiran varios modelos antiguos; también se publica una API para consultar límites de velocidad y s...</description>
+</item>
+<item>
+<title>ApiDelta — May 12, 2026</title>
+<link>https://apidelta.maxiaworld.app/issue/2026-05-12-en.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
+<guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-12-en.html</guid>
+<pubDate>Tue, 12 May 2026 08:00:00 +0000</pubDate>
+<description>**Takeaway** — Update `anthropic` to v0.101.0 for native AWS auth on Claude Platform; OpenAI resolved GPT-5.5 error spike across Chat Completions and Responses....</description>
 </item>
 <item>
 <title>ApiDelta — May 11, 2026</title>

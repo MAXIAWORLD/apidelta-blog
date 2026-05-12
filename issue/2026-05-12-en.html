@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Archive - ApiDelta</title>
-<meta name="description" content="Full archive of ApiDelta daily LLM API digests.">
-<link rel="canonical" href="https://apidelta.maxiaworld.app/archive.html">
-<meta property="og:title" content="Archive - ApiDelta">
-<meta property="og:description" content="Full archive of ApiDelta daily LLM API digests.">
-<meta property="og:url" content="https://apidelta.maxiaworld.app/archive.html">
+<title>ApiDelta — May 12, 2026 - ApiDelta</title>
+<meta name="description" content="**Takeaway** — Update `anthropic` to v0.101.0 for native AWS auth on Claude Platform; OpenAI resolved GPT-5.5 error spike across Chat Completions and Responses....">
+<link rel="canonical" href="https://apidelta.maxiaworld.app/issue/2026-05-12-en.html">
+<meta property="og:title" content="ApiDelta — May 12, 2026 - ApiDelta">
+<meta property="og:description" content="**Takeaway** — Update `anthropic` to v0.101.0 for native AWS auth on Claude Platform; OpenAI resolved GPT-5.5 error spike across Chat Completions and Responses....">
+<meta property="og:url" content="https://apidelta.maxiaworld.app/issue/2026-05-12-en.html">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary">
 <meta name="robots" content="index,follow">
@@ -53,18 +53,18 @@ code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:0.92em}
 </nav>
 </header>
 <main>
-<h1>Archive</h1><ul class="issue-list">
-<li><a href="/issue/2026-05-12-es.html">ApiDelta — 12 de mayo de 2026</a><span class="meta">2026-05-12 - ES</span></li>
-<li><a href="/issue/2026-05-11-es.html">ApiDelta — 11 de mayo de 2026</a><span class="meta">2026-05-11 - ES</span></li>
-<li><a href="/issue/2026-05-10-es.html">ApiDelta — 10 de mayo de 2026</a><span class="meta">2026-05-10 - ES</span></li>
-<li><a href="/issue/2026-05-08-es.html">ApiDelta — 8 de mayo de 2026</a><span class="meta">2026-05-08 - ES</span></li>
-<li><a href="/issue/2026-05-07-es.html">ApiDelta — 7 de mayo de 2026</a><span class="meta">2026-05-07 - ES</span></li>
-<li><a href="/issue/2026-05-12-en.html">ApiDelta — May 12, 2026</a><span class="meta">2026-05-12 - EN</span></li>
-<li><a href="/issue/2026-05-11-en.html">ApiDelta — May 11, 2026</a><span class="meta">2026-05-11 - EN</span></li>
-<li><a href="/issue/2026-05-10-en.html">ApiDelta — May 10, 2026</a><span class="meta">2026-05-10 - EN</span></li>
-<li><a href="/issue/2026-05-08-en.html">ApiDelta — May 8, 2026</a><span class="meta">2026-05-08 - EN</span></li>
-<li><a href="/issue/2026-05-07-en.html">ApiDelta — May 7, 2026</a><span class="meta">2026-05-07 - EN</span></li>
-</ul>
+<h1>ApiDelta — May 12, 2026</h1>
+<p><strong>Takeaway</strong> — Update <code>anthropic</code> to v0.101.0 for native AWS auth on Claude Platform; OpenAI resolved GPT-5.5 error spike across Chat Completions and Responses.</p>
+<p>Anthropic's Python SDK v0.101.0 ships a new AWS client for Claude Platform on AWS. OpenAI's GPT-5.5 saw elevated errors across Chat Completions and the Responses API, fully resolved on May 11 at 17:59 UTC.</p>
+<h3>[INFO] Anthropic SDK v0.101.0 — native AWS client for Claude Platform on AWS</h3>
+<p><code>anthropic-sdk-python</code> v0.101.0 adds a dedicated AWS client class for accessing Claude Platform on AWS, separate from the existing Amazon Bedrock integration. This lets teams on AWS infrastructure use IAM-based auth flows with Claude Platform directly, without routing through Bedrock. Upgrade with <code>pip install -U anthropic</code>. The release also patches a missing <code>f</code>-string prefix in a file type error message (cosmetic only, no API impact).</p>
+<p><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.101.0">Source</a></p>
+<h3>[INFO] OpenAI GPT-5.5 elevated errors resolved — Chat Completions and Responses API</h3>
+<p>An incident caused elevated error rates for <code>gpt-5.5</code> across both Chat Completions and the Responses API; OpenAI marked full recovery at 17:59 UTC on May 11. No lasting impact is expected, but if your stack calls <code>gpt-5.5</code> directly, check error logs for the window roughly May 11 15:00–18:00 UTC to confirm no requests were silently dropped. OpenAI's status page lists both services as operational.</p>
+<p><a href="https://status.openai.com/incidents/01KRBZTV511HR7SWVFZJ0438D6">Source</a></p>
+<hr>
+<p><strong>Tooling note</strong> — Compare LLM prices across 6 sources, one API call. → <a href="https://maxiaworld.app/oracleforge?utm<em>source=apidelta&utm</em>medium=newsletter&utm_campaign=cross-promo">OracleForge</a></p>
+<p>📬 *ApiDelta is free forever.* If it saves you time: → Tip the bot: <a href="https://t.me/apidelta<em>alerts</em>bot">@apidelta<em>alerts</em>bot</a> <code>/tip</code> (Telegram Stars, from 35⭐ ≈ $0.50)</p>
 <div class="cta">
 <strong>Get instant alerts on Telegram</strong>
 Real-time push the moment an API breaks - <a href="https://t.me/apidelta_alerts_bot?start=src_blog">@apidelta_alerts_bot</a> (50 stars/month).<br>
