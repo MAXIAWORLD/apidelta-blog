@@ -114,6 +114,8 @@ hr{border:0;border-top:1px solid var(--card-border);margin:32px 0}
 .article a:hover{border-color:var(--blue-light)}
 .article strong{color:var(--white);font-weight:700}
 .article em{color:var(--text)}
+.article ul{margin:0 0 16px 20px;padding:0}
+.article ul li{margin-bottom:6px;color:var(--text)}
 .article-meta{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;background:rgba(0,0,0,.25);border:1px solid var(--card-border);border-radius:50px;font-size:13px;color:var(--text-muted);margin-bottom:24px}
 /* Footer */
 .footer{background:#030709;padding:48px 0;margin-top:64px;border-top:1px solid var(--card-border)}
@@ -136,6 +138,35 @@ hr{border:0;border-top:1px solid var(--card-border);margin:32px 0}
 .migration-before pre{border-left:3px solid rgba(255,118,118,.45)}
 .migration-after pre{border-left:3px solid rgba(62,219,142,.55)}
 .migration-note{font-size:13px;color:var(--text-muted);margin-top:12px;font-style:italic}
+.impact-badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;margin-right:6px;border:1px solid transparent}
+.impact-breaking{background:rgba(255,118,118,.12);border-color:rgba(255,118,118,.4);color:#ff7676}
+.impact-deprecation{background:rgba(253,231,76,.10);border-color:rgba(253,231,76,.4);color:#FDE74C}
+.impact-feature{background:rgba(62,219,142,.10);border-color:rgba(62,219,142,.4);color:#3edb8e}
+.impact-info{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.15);color:var(--text-muted)}
+.impact-summary{margin:28px 0;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:22px}
+.impact-summary > h2{font-size:14px;text-transform:uppercase;letter-spacing:1.4px;margin-bottom:16px;color:var(--text-muted);font-weight:700}
+.impact-summary-group{margin-bottom:16px}
+.impact-summary-group:last-child{margin-bottom:0}
+.impact-summary-group h3{font-size:13px;margin-bottom:8px;font-weight:600}
+.impact-summary-group ul{list-style:none;padding-left:14px;margin:0}
+.impact-summary-group li{font-size:14px;line-height:1.7;color:var(--text);position:relative;padding-left:14px}
+.impact-summary-group li::before{content:'›';position:absolute;left:0;color:var(--text-muted)}
+.comparator-page{padding:60px 0}
+.comparator-page h1{font-size:32px;margin-bottom:32px}
+.comparator-empty{color:var(--text-muted);font-size:16px}
+.comparator{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);overflow:hidden;font-size:14px}
+.comparator thead{background:rgba(0,0,0,.25)}
+.comparator th{padding:14px 16px;text-align:left;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);border-bottom:1px solid var(--card-border)}
+.comparator td,.comparator th[scope="row"]{padding:14px 16px;vertical-align:top;border-bottom:1px solid var(--card-border)}
+.comparator tr:last-child td,.comparator tr:last-child th{border-bottom:none}
+.comparator th[scope="row"]{font-weight:700;color:var(--white);text-transform:none;letter-spacing:0}
+.comparator td ul{list-style:none;padding:0;margin:0}
+.comparator td li{font-size:13px;line-height:1.7;padding-left:10px;position:relative}
+.comparator td li::before{content:'·';position:absolute;left:0;color:var(--text-muted)}
+.comparator td.empty{color:var(--text-muted);text-align:center;opacity:.4}
+.comparator .col-breaking,.comparator .cell-breaking{border-left:2px solid rgba(255,118,118,.25)}
+.comparator .col-deprecation,.comparator .cell-deprecation{border-left:2px solid rgba(253,231,76,.25)}
+.comparator .col-feature,.comparator .cell-feature{border-left:2px solid rgba(62,219,142,.25)}
 </style>
 </head>
 <body>
@@ -161,11 +192,13 @@ hr{border:0;border-top:1px solid var(--card-border);margin:32px 0}
 <h3>Rate Limits API disponible</h3>
 <p>Los administradores pueden consultar programáticamente los límites de velocidad configurados por organización y workspace, facilitando la automatización de gestión de cuotas. <a href="https://docs.anthropic.com/en/release-notes/api#april-24-2026">Fuente</a></p>
 <h3>Modelos Claude 3 retirados o próximos a retirarse</h3>
-<p>- <code>claude-3-5-haiku-20241022</code> (retirado, fecha tentativa 19 feb 2026) - <code>claude-3-7-sonnet-20250219</code> (retirado, fecha tentativa 19 feb 2026) - <code>claude-3-haiku-20240307</code> (retirado, fecha tentativa 20 abr 2026) Los desarrolladores deben migrar a versiones posteriores (p. ej., Opus 4.x o Sonnet 4.6+). <a href="https://docs.anthropic.com/en/docs/about-claude/model-deprecations">Fuente</a></p>
+<ul><li><code>claude-3-5-haiku-20241022</code> (retirado, fecha tentativa 19 feb 2026)</li><li><code>claude-3-7-sonnet-20250219</code> (retirado, fecha tentativa 19 feb 2026)</li><li><code>claude-3-haiku-20240307</code> (retirado, fecha tentativa 20 abr 2026)</li></ul>
+<p>Los desarrolladores deben migrar a versiones posteriores (p. ej., Opus 4.x o Sonnet 4.6+). <a href="https://docs.anthropic.com/en/docs/about-claude/model-deprecations">Fuente</a></p>
 <h3>Mistral Vibe 2.0 y mejoras en API de anotaciones</h3>
 <p>Se lanza Vibe 2.0 y se eliminan límites de 8 páginas en anotaciones de documentos, ampliando la capacidad de procesamiento de texto. <a href="https://docs.mistral.ai/getting-started/changelog/#january-27">Fuente</a></p>
 <h3>SDK Python de Mistral 2.4.3: cambios breaking y nuevas funciones</h3>
-<p>- <code>mistral.ocr.process()</code> pierde el atributo <code>request.id</code> (breaking). - Se añade <code>mistral.beta.rag.ingestion<em>pipeline</em>configurations.register()</code>. Actualice el código que usa OCR y revise la nueva función RAG. <a href="https://github.com/mistralai/client-python/releases/tag/v2.4.3">Fuente</a></p><div class="cta-card" style="margin-top:48px"><h3>Telegram — aviso instantáneo</h3><p><a href="https://t.me/apidelta_alerts_bot?start=src_blog">@apidelta_alerts_bot</a> — Premium · 50 ⭐/mes · en segundos.</p><p><a href="https://t.me/apidelta_news_bot?start=src_blog">@apidelta_news_bot</a> — Gratis · un resumen al día · idioma auto-detectado.</p></div></div></article>
+<ul><li><code>mistral.ocr.process()</code> pierde el atributo <code>request.id</code> (breaking).</li><li>Se añade <code>mistral.beta.rag.ingestion<em>pipeline</em>configurations.register()</code>.</li></ul>
+<p>Actualice el código que usa OCR y revise la nueva función RAG. <a href="https://github.com/mistralai/client-python/releases/tag/v2.4.3">Fuente</a></p><div class="cta-card" style="margin-top:48px"><h3>Telegram — aviso instantáneo</h3><p><a href="https://t.me/apidelta_alerts_bot?start=src_blog">@apidelta_alerts_bot</a> — Premium · 50 ⭐/mes · en segundos.</p><p><a href="https://t.me/apidelta_news_bot?start=src_blog">@apidelta_news_bot</a> — Gratis · un resumen al día · idioma auto-detectado.</p></div></div></article>
 <footer class="footer">
 <div class="container">
 <div class="footer-inner">

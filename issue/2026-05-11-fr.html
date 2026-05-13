@@ -114,6 +114,8 @@ hr{border:0;border-top:1px solid var(--card-border);margin:32px 0}
 .article a:hover{border-color:var(--blue-light)}
 .article strong{color:var(--white);font-weight:700}
 .article em{color:var(--text)}
+.article ul{margin:0 0 16px 20px;padding:0}
+.article ul li{margin-bottom:6px;color:var(--text)}
 .article-meta{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;background:rgba(0,0,0,.25);border:1px solid var(--card-border);border-radius:50px;font-size:13px;color:var(--text-muted);margin-bottom:24px}
 /* Footer */
 .footer{background:#030709;padding:48px 0;margin-top:64px;border-top:1px solid var(--card-border)}
@@ -136,6 +138,35 @@ hr{border:0;border-top:1px solid var(--card-border);margin:32px 0}
 .migration-before pre{border-left:3px solid rgba(255,118,118,.45)}
 .migration-after pre{border-left:3px solid rgba(62,219,142,.55)}
 .migration-note{font-size:13px;color:var(--text-muted);margin-top:12px;font-style:italic}
+.impact-badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;margin-right:6px;border:1px solid transparent}
+.impact-breaking{background:rgba(255,118,118,.12);border-color:rgba(255,118,118,.4);color:#ff7676}
+.impact-deprecation{background:rgba(253,231,76,.10);border-color:rgba(253,231,76,.4);color:#FDE74C}
+.impact-feature{background:rgba(62,219,142,.10);border-color:rgba(62,219,142,.4);color:#3edb8e}
+.impact-info{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.15);color:var(--text-muted)}
+.impact-summary{margin:28px 0;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:22px}
+.impact-summary > h2{font-size:14px;text-transform:uppercase;letter-spacing:1.4px;margin-bottom:16px;color:var(--text-muted);font-weight:700}
+.impact-summary-group{margin-bottom:16px}
+.impact-summary-group:last-child{margin-bottom:0}
+.impact-summary-group h3{font-size:13px;margin-bottom:8px;font-weight:600}
+.impact-summary-group ul{list-style:none;padding-left:14px;margin:0}
+.impact-summary-group li{font-size:14px;line-height:1.7;color:var(--text);position:relative;padding-left:14px}
+.impact-summary-group li::before{content:'›';position:absolute;left:0;color:var(--text-muted)}
+.comparator-page{padding:60px 0}
+.comparator-page h1{font-size:32px;margin-bottom:32px}
+.comparator-empty{color:var(--text-muted);font-size:16px}
+.comparator{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);overflow:hidden;font-size:14px}
+.comparator thead{background:rgba(0,0,0,.25)}
+.comparator th{padding:14px 16px;text-align:left;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);border-bottom:1px solid var(--card-border)}
+.comparator td,.comparator th[scope="row"]{padding:14px 16px;vertical-align:top;border-bottom:1px solid var(--card-border)}
+.comparator tr:last-child td,.comparator tr:last-child th{border-bottom:none}
+.comparator th[scope="row"]{font-weight:700;color:var(--white);text-transform:none;letter-spacing:0}
+.comparator td ul{list-style:none;padding:0;margin:0}
+.comparator td li{font-size:13px;line-height:1.7;padding-left:10px;position:relative}
+.comparator td li::before{content:'·';position:absolute;left:0;color:var(--text-muted)}
+.comparator td.empty{color:var(--text-muted);text-align:center;opacity:.4}
+.comparator .col-breaking,.comparator .cell-breaking{border-left:2px solid rgba(255,118,118,.25)}
+.comparator .col-deprecation,.comparator .cell-deprecation{border-left:2px solid rgba(253,231,76,.25)}
+.comparator .col-feature,.comparator .cell-feature{border-left:2px solid rgba(62,219,142,.25)}
 </style>
 </head>
 <body>
@@ -174,7 +205,7 @@ hr{border:0;border-top:1px solid var(--card-border);margin:32px 0}
 <p>Modèle multimodal basse latence, haut volume — entrées texte, image, vidéo, audio, PDF. Disponible sur OpenRouter : <code>google/gemini-3.1-flash-lite</code>.</p>
 <p><a href="https://openrouter.ai/models/google/gemini-3.1-flash-lite">Source</a></p>
 <h2>À faire cette semaine</h2>
-<p>- Retirer le header <code>context-1m-2025-08-07</code> de tous les appels vers <code>claude-sonnet-4-5</code> / <code>claude-sonnet-4-20250514</code> ; migrer vers <code>claude-sonnet-4-6</code>. - Migrer hors de <code>claude-sonnet-4-20250514</code> et <code>claude-opus-4-20250514</code> avant le 15 juin. - Auditer les intégrations Mistral parsant <code>workflows.executions.stream()</code> ou <code>workflows.events.get<em>stream</em>events()</code> avant <code>mistralai</code> v2.4.5.</p>
+<ul><li>Retirer le header <code>context-1m-2025-08-07</code> de tous les appels vers <code>claude-sonnet-4-5</code> / <code>claude-sonnet-4-20250514</code> ; migrer vers <code>claude-sonnet-4-6</code>.</li><li>Migrer hors de <code>claude-sonnet-4-20250514</code> et <code>claude-opus-4-20250514</code> avant le 15 juin.</li><li>Auditer les intégrations Mistral parsant <code>workflows.executions.stream()</code> ou <code>workflows.events.get<em>stream</em>events()</code> avant <code>mistralai</code> v2.4.5.</li></ul>
 <hr>
 <p><strong>Tooling note</strong> — Compare LLM prices across 6 sources, one API call. → <a href="https://maxiaworld.app/oracleforge?utm<em>source=apidelta&utm</em>medium=newsletter&utm_campaign=cross-promo">OracleForge</a></p>
 <p>📬 *ApiDelta is free forever.* If it saves you time: → Tip the bot: <a href="https://t.me/apidelta<em>alerts</em>bot">@apidelta<em>alerts</em>bot</a> <code>/tip</code> (Telegram Stars, from 35⭐ ≈ $0.50)</p><div class="cta-card" style="margin-top:48px"><h3>Telegram — push instantané</h3><p><a href="https://t.me/apidelta_alerts_bot?start=src_blog">@apidelta_alerts_bot</a> — Premium · 50 ⭐/mois · en quelques secondes.</p><p><a href="https://t.me/apidelta_news_bot?start=src_blog">@apidelta_news_bot</a> — Gratuit · un digest par jour · langue auto-détectée.</p></div></div></article>
