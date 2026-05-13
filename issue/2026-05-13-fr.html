@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ApiDelta — Veille quotidienne des APIs LLM — Anthropic, OpenAI, Mistral, Google AI, et plus.</title>
-<meta name="description" content="Veille quotidienne des APIs LLM — Anthropic, OpenAI, Mistral, Google AI, et plus.">
-<link rel="canonical" href="https://apidelta.maxiaworld.app/index-fr.html">
-<meta property="og:title" content="ApiDelta — Veille quotidienne des APIs LLM — Anthropic, OpenAI, Mistral, Google AI, et plus.">
-<meta property="og:description" content="Veille quotidienne des APIs LLM — Anthropic, OpenAI, Mistral, Google AI, et plus.">
-<meta property="og:url" content="https://apidelta.maxiaworld.app/index-fr.html">
+<title>ApiDelta — 13 mai 2026 — ApiDelta</title>
+<meta name="description" content="À retenir — Migrer pydantic-ai hors de `Agent(instrument=...)` avant le V2 de juin ; trois incidents Anthropic du 12 mai tous résolus. Trois incidents distincts ont touché la plate...">
+<link rel="canonical" href="https://apidelta.maxiaworld.app/issue/2026-05-13-fr.html">
+<meta property="og:title" content="ApiDelta — 13 mai 2026 — ApiDelta">
+<meta property="og:description" content="À retenir — Migrer pydantic-ai hors de `Agent(instrument=...)` avant le V2 de juin ; trois incidents Anthropic du 12 mai tous résolus. Trois incidents distincts ont touché la plate...">
+<meta property="og:url" content="https://apidelta.maxiaworld.app/issue/2026-05-13-fr.html">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary">
 <meta name="robots" content="index,follow">
@@ -183,24 +183,29 @@ hr{border:0;border-top:1px solid var(--card-border);margin:32px 0}
 <a href="/subscribe.html" class="nav-cta">S'abonner →</a>
 </div>
 </nav>
-<section class="hero">
-<div class="container">
-<div class="hero-content">
-<span class="hero-badge">DIGEST QUOTIDIEN · GRATUIT</span>
-<h1>Chaque changement d'API LLM.<br><span class="hl-y">Un seul push.</span></h1>
-<p class="hero-sub">Anthropic, OpenAI, Mistral, Google AI, OpenRouter, HuggingFace, Replicate, Cerebras, DeepSeek, Qwen, NVIDIA, xAI, SambaNova. Modèles, tarifs, deprecations, breaking changes — en quelques secondes.</p>
-<div class="hero-actions">
-<a href="/subscribe.html" class="btn-primary">S'abonner sur Telegram →</a>
-<a href="/archive.html" class="btn-outline">Voir les archives</a>
-</div>
-<div class="hero-stats">
-<div class="hero-stat"><span class="hero-stat-v">15+</span><span class="hero-stat-l">APIs surveillées</span></div>
-<div class="hero-stat"><span class="hero-stat-v">24/7</span><span class="hero-stat-l">Temps réel</span></div>
-<div class="hero-stat"><span class="hero-stat-v">0 €</span><span class="hero-stat-l">Gratuit</span></div>
-</div>
-</div>
-</div>
-</section><section class="section"><div class="container"><h2 class="section-title">Derniers digests</h2><div class="issue-grid"><a class="issue-card" href="/issue/2026-05-13-fr.html"><div class="issue-meta"><span class="lang-badge">FR</span><span>2026-05-13</span></div><h3>ApiDelta — 13 mai 2026</h3><p>À retenir — Migrer pydantic-ai hors de `Agent(instrument=...)` avant le V2 de juin ; trois incidents Anthropic du 12 mai tous résolus. Trois incidents distincts ont touché la plate...</p><span class="issue-read">→</span></a><a class="issue-card" href="/issue/2026-05-12-fr.html"><div class="issue-meta"><span class="lang-badge">FR</span><span>2026-05-12</span></div><h3>ApiDelta — 12 mai 2026</h3><p>À retenir — Mets à jour `anthropic` en v0.101.0 pour le nouveau client AWS natif sur Claude Platform ; OpenAI a résolu un pic d'erreurs sur GPT-5.5 affectant Chat Completions et Re...</p><span class="issue-read">→</span></a><a class="issue-card" href="/issue/2026-05-11-fr.html"><div class="issue-meta"><span class="lang-badge">FR</span><span>2026-05-11</span></div><h3>ApiDelta — 11 mai 2026</h3><p>À retenir — Anthropic lance Claude Platform sur AWS avec IAM natif ; Mistral SDK Python v2.4.5 introduit des breaking changes dans les réponses des workflows. Trois points du jour ...</p><span class="issue-read">→</span></a></div></div></section>
+<article class="article"><div class="container"><div class="article-meta"><span class="lang-badge">FR</span> · 2026-05-13</div><h1>ApiDelta — 13 mai 2026</h1>
+<p><strong>À retenir</strong> — Migrer pydantic-ai hors de <code>Agent(instrument=...)</code> avant le V2 de juin ; trois incidents Anthropic du 12 mai tous résolus.</p>
+<p>Trois incidents distincts ont touché la plateforme Claude le 12 mai (Sonnet 4.6/Haiku 4.5, Opus 4.7, Vaults & Credentials), tous résolus en moins d'une heure. pydantic-ai v1.95.0 déprécie <code>Agent(instrument=...)</code> avant un V2 prévu en juin, et ajoute un Tool Search natif pour Anthropic et OpenAI.</p>
+<h3>[INFO] Claude Opus 4.7 Fast disponible sur OpenRouter — $30/M input, $150/M output</h3>
+<p>La variante fast-mode de Claude Opus 4.7 est disponible sur OpenRouter sous l'identifiant <code>anthropic/claude-opus-4.7-fast</code>. Capacités identiques à l'Opus 4.7 standard, mais optimisées pour le débit, à 6× le prix : $30/M tokens en entrée, $150/M en sortie (contexte 1M tokens). Lecture cache : $3/M, écriture : $37,50/M. La doc fast-mode Anthropic détaille les compromis latence/qualité.</p>
+<p><a href="https://openrouter.ai/models/anthropic/claude-opus-4.7-fast">Source</a> | <a href="https://platform.claude.com/docs/en/build-with-claude/fast-mode">Doc fast-mode</a></p>
+<h3>[INFO] Trois incidents Anthropic résolus — Sonnet 4.6, Haiku 4.5, Opus 4.7, Vaults</h3>
+<p>Le 12 mai, trois incidents ont frappé la plateforme Claude à intervalles rapprochés. Vaults and Credentials : erreurs élevées ~18h47–18h57 UTC (~10 min). Sonnet 4.6 et Haiku 4.5 : erreurs élevées ~19h36–20h13 UTC (~37 min). Opus 4.7 : erreurs élevées ~23h38–23h58 UTC (~20 min). Tout est résolu. Vérifiez vos logs sur ces fenêtres, surtout pour Sonnet 4.6 et Haiku 4.5 qui ont eu la fenêtre la plus longue.</p>
+<p><a href="https://status.claude.com/incidents/c2hjyfpgsprx">Incident Sonnet/Haiku</a> | <a href="https://status.claude.com/incidents/3kkmgccb9z85">Incident Opus 4.7</a> | <a href="https://status.claude.com/incidents/n0c72xml12l4">Incident Vaults</a></p>
+<h3>[À SURVEILLER] pydantic-ai v1.95.0 — Agent(instrument=...) déprécié avant le V2 de juin</h3>
+<p><code>pydantic-ai</code> v1.95.0 déprécie le paramètre <code>Agent(instrument=...)</code> au profit d'une nouvelle classe <code>Instrumentation</code>. Le V2 est attendu en juin. Deux nouvelles fonctionnalités : Tool Search natif sur Anthropic et OpenAI (stratégies personnalisables sur tout fournisseur), et support de la combinaison structured output + tool use pour Gemini 3. Si votre code utilise <code>instrument=</code> sur <code>Agent</code>, planifiez la migration dès maintenant.</p>
+<p><a href="https://github.com/pydantic/pydantic-ai/releases/tag/v1.95.0">Source</a></p>
+<h3>[INFO] langchain 1.3.0 — stream_events v3 pour les agents</h3>
+<p><code>langchain==1.3.0</code> ajoute le support de <code>version="v3"</code> dans <code>stream<em>events</code> / <code>astream</em>events</code> pour les agents LangChain. Le protocole v3 est documenté dans le guide event streaming. Aucun breaking change signalé, le flag v3 est opt-in.</p>
+<p><a href="https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.3.0">Source</a> | <a href="https://docs.langchain.com/oss/python/langchain/event-streaming">Doc event streaming</a></p>
+<h3>[INFO] Cline CLI v3.0.0 — CLI standalone avec interface terminal</h3>
+<p>Cline publie un CLI autonome (<code>npm install -g cline</code>) construit sur son nouveau SDK, avec une interface terminal (TUI). Jusqu'ici, Cline était réservé à VS Code. Utilisable désormais en CI et en environnement headless. Builds nightly disponibles via <code>cline@nightly</code>.</p>
+<p><a href="https://github.com/cline/cline/releases/tag/cli-v3.0.0">Source</a></p>
+<h2>À faire cette semaine</h2>
+<ul><li>Mettre à jour <code>pydantic-ai</code> vers ≥v1.95.0 et migrer <code>Agent(instrument=...)</code> vers la nouvelle classe <code>Instrumentation</code> avant le V2 de juin.</li><li>Vérifier les logs du 12 mai, fenêtres 19h36–20h13 UTC (Sonnet 4.6/Haiku 4.5) et 23h38–23h58 UTC (Opus 4.7) pour détecter d'éventuelles requêtes perdues.</li></ul>
+<hr>
+<p><strong>Tooling note</strong> — Compare LLM prices across 6 sources, one API call. → <a href="https://maxiaworld.app/oracleforge?utm<em>source=apidelta&utm</em>medium=newsletter&utm_campaign=cross-promo">OracleForge</a></p>
+<p>📬 *ApiDelta is free forever.* If it saves you time: → Tip the bot: <a href="https://t.me/apidelta<em>alerts</em>bot">@apidelta<em>alerts</em>bot</a> <code>/tip</code> (Telegram Stars, from 35⭐ ≈ $0.50)</p><div class="cta-card" style="margin-top:48px"><h3>Telegram — push instantané</h3><p><a href="https://t.me/apidelta_alerts_bot?start=src_blog">@apidelta_alerts_bot</a> — Premium · 50 ⭐/mois · en quelques secondes.</p><p><a href="https://t.me/apidelta_news_bot?start=src_blog">@apidelta_news_bot</a> — Gratuit · un digest par jour · langue auto-détectée.</p></div></div></article>
 <footer class="footer">
 <div class="container">
 <div class="footer-inner">

@@ -192,12 +192,13 @@ hr{border:0;border-top:1px solid var(--card-border);margin:32px 0}
 </div>
 <hr>
 <h2 class="section-title" style="margin-top:32px">Yesterday's digest preview</h2>
-<div class="article"><h1>ApiDelta — 12 mai 2026</h1>
-<p><strong>À retenir</strong> — Mets à jour <code>anthropic</code> en v0.101.0 pour le nouveau client AWS natif sur Claude Platform ; OpenAI a résolu un pic d'erreurs sur GPT-5.5 affectant Chat Completions et Responses.</p>
-<p>Le SDK Python d'Anthropic v0.101.0 embarque un client AWS dédié pour Claude Platform sur AWS. OpenAI a enregistré des erreurs élevées sur GPT-5.5 touchant Chat Completions et l'API Responses, incident résolu le 11 mai à 17h59 UTC.</p>
-<h3>[INFO] Anthropic SDK v0.101.0 — client AWS natif pour Claude Platform on AWS</h3>
+<div class="article"><h1>ApiDelta — 13 mai 2026</h1>
+<p><strong>À retenir</strong> — Migrer pydantic-ai hors de <code>Agent(instrument=...)</code> avant le V2 de juin ; trois incidents Anthropic du 12 mai tous résolus.</p>
+<p>Trois incidents distincts ont touché la plateforme Claude le 12 mai (Sonnet 4.6/Haiku 4.5, Opus 4.7, Vaults & Credentials), tous résolus en moins d'une heure. pydantic-ai v1.95.0 déprécie <code>Agent(instrument=...)</code> avant un V2 prévu en juin, et ajoute un Tool Search natif pour Anthropic et OpenAI.</p>
+<h3>[INFO] Claude Opus 4.7 Fast disponible sur OpenRouter — $30/M input, $150/M output</h3>
+<p>La variante fast-mode de Claude Opus 4.7 est disponible sur OpenRouter sous l'identifiant <code>anthropic/claude-opus-4.7-fast</code>. Capacités identiques à l'Opus 4.7 standard, mais optimisées pour le débit, à 6× le prix : $30/M tokens en entrée, $150/M en sortie (contexte 1M tokens). Lecture cache : $3/M, écriture : $37,50/M. La doc fast-mode Anthropic détaille les compromis latence/qualité.</p>
 <p>...</p></div>
-<p><a href="/issue/2026-05-12-fr.html">Read the full digest →</a> or browse the full archive: <a href="/archive.html">Archive</a>.</p>
+<p><a href="/issue/2026-05-13-fr.html">Read the full digest →</a> or browse the full archive: <a href="/archive.html">Archive</a>.</p>
 </div></section>
 <footer class="footer">
 <div class="container">
