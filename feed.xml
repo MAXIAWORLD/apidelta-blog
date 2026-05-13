@@ -6,8 +6,15 @@
 <atom:link href="https://apidelta.maxiaworld.app/feed.xml" rel="self" type="application/rss+xml"/>
 <description>Daily digest of changes across LLM APIs (Anthropic, OpenAI, Mistral, etc.).</description>
 <language>en-us</language>
-<lastBuildDate>Tue, 12 May 2026 09:22:13 +0000</lastBuildDate>
+<lastBuildDate>Wed, 13 May 2026 08:15:34 +0000</lastBuildDate>
 
+<item>
+<title>ApiDelta — May 13, 2026</title>
+<link>https://apidelta.maxiaworld.app/issue/2026-05-13-en.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
+<guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-13-en.html</guid>
+<pubDate>Wed, 13 May 2026 08:00:00 +0000</pubDate>
+<description>Today's updates focus on new tool‑search capabilities, agent executor changes, a fast‑mode pricing tier for Claude Opus, and several library enhancements. Pydantic‑AI 1.95.0 introd...</description>
+</item>
 <item>
 <title>ApiDelta — May 12, 2026</title>
 <link>https://apidelta.maxiaworld.app/issue/2026-05-12-en.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>

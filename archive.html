@@ -124,6 +124,18 @@ hr{border:0;border-top:1px solid var(--card-border);margin:32px 0}
 .footer-links a{font-size:13px;color:var(--text-muted)}
 .footer-links a:hover{color:var(--white)}
 .footer-copy{font-size:12px;color:rgba(255,255,255,.25);text-align:center;padding-top:28px;margin-top:24px;border-top:1px solid rgba(255,255,255,.04)}
+/* Migration snippets (Phase 1 — breaking-change AVANT/APRÈS) */
+.migration{margin:28px 0;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:22px}
+.migration-before,.migration-after{margin-bottom:14px}
+.migration-before:last-child,.migration-after:last-child{margin-bottom:0}
+.migration-before h4,.migration-after h4{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:8px;font-weight:700}
+.migration-before h4{color:#ff7676}
+.migration-after h4{color:#3edb8e}
+.migration pre{background:rgba(0,0,0,.4);padding:14px 16px;border-radius:10px;overflow-x:auto;margin:0}
+.migration pre code{background:none;padding:0;color:var(--text);font-size:13px;line-height:1.6;font-family:ui-monospace,'SFMono-Regular',Menlo,monospace}
+.migration-before pre{border-left:3px solid rgba(255,118,118,.45)}
+.migration-after pre{border-left:3px solid rgba(62,219,142,.55)}
+.migration-note{font-size:13px;color:var(--text-muted);margin-top:12px;font-style:italic}
 </style>
 </head>
 <body>
@@ -143,11 +155,13 @@ hr{border:0;border-top:1px solid var(--card-border);margin:32px 0}
 <section class="section"><div class="container"><h1 class="section-title">Archive</h1><p class="section-desc">Full archive of ApiDelta digests across all languages.</p><ul class="archive-list">
 <li><a href="/issue/2026-05-12-fr.html">ApiDelta — 12 mai 2026</a><span class="meta"><span class="lang-badge">FR</span> · 2026-05-12 · À retenir — Mets à jour `anthropic` en v0.101.0 pour le nouveau client AWS natif sur Claude Platform ; OpenAI a résolu u</span></li>
 <li><a href="/issue/2026-05-11-fr.html">ApiDelta — 11 mai 2026</a><span class="meta"><span class="lang-badge">FR</span> · 2026-05-11 · À retenir — Anthropic lance Claude Platform sur AWS avec IAM natif ; Mistral SDK Python v2.4.5 introduit des breaking ch</span></li>
+<li><a href="/issue/2026-05-13-es.html">ApiDelta — 13 de mayo de 2026</a><span class="meta"><span class="lang-badge">ES</span> · 2026-05-13 · Se añaden búsquedas nativas en herramientas, mejoras de ejecución en CrewAI, soporte de streaming en LangChain y una var</span></li>
 <li><a href="/issue/2026-05-12-es.html">ApiDelta — 12 de mayo de 2026</a><span class="meta"><span class="lang-badge">ES</span> · 2026-05-12 · Resumen — Actualiza `anthropic` a v0.101.0 para soporte nativo de AWS en Claude Platform; OpenAI resolvió un pico de err</span></li>
 <li><a href="/issue/2026-05-11-es.html">ApiDelta — 11 de mayo de 2026</a><span class="meta"><span class="lang-badge">ES</span> · 2026-05-11 · Resumen — Anthropic lanza Claude Platform en AWS con IAM nativo; Mistral SDK Python v2.4.5 introduce breaking changes en</span></li>
 <li><a href="/issue/2026-05-10-es.html">ApiDelta — 10 de mayo de 2026</a><span class="meta"><span class="lang-badge">ES</span> · 2026-05-10 · Se publicaron nuevas versiones de Mistral Small y se resolvieron incidentes de Claude, Codex y OpenAI que afectaron a ex</span></li>
 <li><a href="/issue/2026-05-08-es.html">ApiDelta — 8 de mayo de 2026</a><span class="meta"><span class="lang-badge">ES</span> · 2026-05-08 · Se amplían las ventanas de contexto a 1 M de tokens en modelos Opus y Sonnet, se lanza Opus 4.7, se retiran betas y mode</span></li>
 <li><a href="/issue/2026-05-07-es.html">ApiDelta — 7 de mayo de 2026</a><span class="meta"><span class="lang-badge">ES</span> · 2026-05-07 · Se añaden modelos con ventana de contexto de 1 M tokens y se retiran varios modelos antiguos; también se publica una API</span></li>
+<li><a href="/issue/2026-05-13-en.html">ApiDelta — May 13, 2026</a><span class="meta"><span class="lang-badge">EN</span> · 2026-05-13 · Today's updates focus on new tool‑search capabilities, agent executor changes, a fast‑mode pricing tier for Claude Opus,</span></li>
 <li><a href="/issue/2026-05-12-en.html">ApiDelta — May 12, 2026</a><span class="meta"><span class="lang-badge">EN</span> · 2026-05-12 · Takeaway — Update `anthropic` to v0.101.0 for native AWS auth on Claude Platform; OpenAI resolved GPT-5.5 error spike ac</span></li>
 <li><a href="/issue/2026-05-11-en.html">ApiDelta — May 11, 2026</a><span class="meta"><span class="lang-badge">EN</span> · 2026-05-11 · Takeaway — Anthropic launches Claude API on AWS with native IAM auth; Mistral SDK v2.4.5 ships breaking changes in workf</span></li>
 <li><a href="/issue/2026-05-10-en.html">ApiDelta — May 10, 2026</a><span class="meta"><span class="lang-badge">EN</span> · 2026-05-10 · Mistral added a new model endpoint, Claude services recovered from several brief outages, and OpenAI reported resolved p</span></li>
