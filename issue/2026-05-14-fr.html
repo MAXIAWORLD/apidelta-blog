@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Subscribe — ApiDelta</title>
-<meta name="description" content="Subscribe to ApiDelta — daily LLM API changelog digest via Telegram or email. Free, no spam.">
-<link rel="canonical" href="https://apidelta.maxiaworld.app/subscribe.html">
-<meta property="og:title" content="Subscribe — ApiDelta">
-<meta property="og:description" content="Subscribe to ApiDelta — daily LLM API changelog digest via Telegram or email. Free, no spam.">
-<meta property="og:url" content="https://apidelta.maxiaworld.app/subscribe.html">
+<title>ApiDelta — 14 mai 2026 — ApiDelta</title>
+<meta name="description" content="Journée chargée côté outillage local et frameworks d'agents : deux releases Ollama majeures en préparation, des correctifs llama.cpp, et une migration API à anticiper dans pydantic...">
+<link rel="canonical" href="https://apidelta.maxiaworld.app/issue/2026-05-14-fr.html">
+<meta property="og:title" content="ApiDelta — 14 mai 2026 — ApiDelta">
+<meta property="og:description" content="Journée chargée côté outillage local et frameworks d'agents : deux releases Ollama majeures en préparation, des correctifs llama.cpp, et une migration API à anticiper dans pydantic...">
+<meta property="og:url" content="https://apidelta.maxiaworld.app/issue/2026-05-14-fr.html">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary">
 <meta name="robots" content="index,follow">
@@ -171,37 +171,34 @@ hr{border:0;border-top:1px solid var(--card-border);margin:32px 0}
 </head>
 <body>
 <nav id="nav">
-<a href="https://apidelta.maxiaworld.app/" class="nav-logo">ApiDelta<span class="dot">.</span></a>
+<a href="https://apidelta.maxiaworld.app/index-fr.html" class="nav-logo">ApiDelta<span class="dot">.</span></a>
 <div class="nav-links">
-<a href="https://apidelta.maxiaworld.app/">Home</a>
-<a href="/archive.html">Archive</a>
-<a href="/subscribe.html">Subscribe</a>
+<a href="https://apidelta.maxiaworld.app/index-fr.html">Accueil</a>
+<a href="/archive.html">Archives</a>
+<a href="/subscribe.html">S'abonner</a>
 <a href="/feed.xml">RSS</a>
 </div>
 <div class="nav-right">
-<div class="lang-switch"><a href="/" class="active">EN</a><a href="/index-es.html">ES</a><a href="/index-fr.html">FR</a></div>
-<a href="/subscribe.html" class="nav-cta">Subscribe →</a>
+<div class="lang-switch"><a href="/">EN</a><a href="/index-es.html">ES</a><a href="/index-fr.html" class="active">FR</a></div>
+<a href="/subscribe.html" class="nav-cta">S'abonner →</a>
 </div>
 </nav>
-<section class="section"><div class="container">
-<h1 class="section-title">Subscribe to ApiDelta</h1>
-<p class="section-desc">Daily digest of every change shipped by Anthropic, OpenAI, Mistral, Google AI, HuggingFace, OpenRouter, Replicate, Cerebras, DeepSeek, Qwen, NVIDIA, xAI, SambaNova, and more.</p>
-<div class="cta-card">
-<h3>Telegram — instant push</h3>
-<p><a href="https://t.me/apidelta_alerts_bot?start=src_subscribe">@apidelta_alerts_bot</a> — Premium · 50 ⭐/month · pushed within seconds.</p><p><a href="https://t.me/apidelta_news_bot?start=src_subscribe">@apidelta_news_bot</a> — Free · one digest per day · your language auto-detected.</p>
-</div>
-<hr>
-<h2 class="section-title" style="margin-top:32px">Yesterday's digest preview</h2>
-<div class="article"><h1>ApiDelta — 14 mai 2026</h1>
+<article class="article"><div class="container"><div class="article-meta"><span class="lang-badge">FR</span> · 2026-05-14</div><h1>ApiDelta — 14 mai 2026</h1>
 <p>Journée chargée côté outillage local et frameworks d'agents : deux releases Ollama majeures en préparation, des correctifs llama.cpp, et une migration API à anticiper dans pydantic-ai.</p>
 <hr>
 <h3>pydantic-ai : préparez la migration vers le préfixe `openai-chat:`</h3>
 <p>La v1.96.0 introduit le préfixe <code>openai-chat:</code> et émet désormais un warning sur les identifiants <code>openai:</code> nus — en v2 (juin 2026), ces derniers basculeront automatiquement vers la Responses API. Auditez vos configurations dès maintenant pour éviter des changements de comportement silencieux. Par ailleurs, la v1.95.1 corrige un bug qui cassait les runs d'agents dans les workflows Temporal (import OpenTelemetry). <a href="https://github.com/pydantic/pydantic-ai/releases/tag/v1.96.0">Source</a></p>
 <hr>
 <h3>Ollama v0.30.0 : refonte architecturale avec support direct de llama.cpp</h3>
-<p>...</p></div>
-<p><a href="/issue/2026-05-14-fr.html">Read the full digest →</a> or browse the full archive: <a href="/archive.html">Archive</a>.</p>
-</div></section>
+<p>Cette pre-release abandonne la couche GGML au profit d'une intégration directe de llama.cpp, avec compatibilité native GGUF et accélération MLX sur Apple Silicon. Changement structurel important : testez vos pipelines locaux avant de migrer, des régressions sont possibles. La v0.24.0-rc0 ajoute en parallèle l'intégration Codex et du logging mémoire MLX. <a href="https://github.com/ollama/ollama/releases/tag/v0.30.0-rc15">Source v0.30.0</a> · <a href="https://github.com/ollama/ollama/releases/tag/v0.24.0-rc0">Source v0.24.0</a></p>
+<hr>
+<h3>llama.cpp b9143/b9144 : correctifs arithmétique et WebGPU</h3>
+<p>Le build b9143 corrige une ambiguïté d'opérateur <code>half+half</code> qui pouvait produire des résultats incorrects sur certains backends. Le b9144 restreint le chemin subgroup-matrix WebGPU aux dimensions de tête divisibles par <code>sg<em>mat</em>k</code>/<code>sg<em>mat</em>n</code>, évitant des crashs silencieux. Mettez à jour si vous utilisez des backends GPU non-CUDA. <a href="https://github.com/ggml-org/llama.cpp/releases/tag/b9143">Source b9143</a> · <a href="https://github.com/ggml-org/llama.cpp/releases/tag/b9144">Source b9144</a></p>
+<hr>
+<h3>Incident Claude.ai résolu (13 mai, ~12h59–14h45 UTC)</h3>
+<p>Claude.ai a subi des taux d'erreur élevés pendant environ deux heures hier après-midi. L'incident est résolu ; aucune action requise, mais vérifiez vos logs si des appels ont échoué dans cette fenêtre. <a href="https://status.claude.com/incidents/yn24rtdnf77b">Source</a></p>
+<hr>
+<p><strong>Tooling note</strong> — Cap LLM spend, auto-downgrade to cheaper models on deprecation. → <a href="https://maxiaworld.app/budgetforge?utm<em>source=apidelta&utm</em>medium=newsletter&utm_campaign=cross-promo">BudgetForge</a></p><div class="cta-card" style="margin-top:48px"><h3>Telegram — push instantané</h3><p><a href="https://t.me/apidelta_alerts_bot?start=src_blog">@apidelta_alerts_bot</a> — Premium · 50 ⭐/mois · en quelques secondes.</p><p><a href="https://t.me/apidelta_news_bot?start=src_blog">@apidelta_news_bot</a> — Gratuit · un digest par jour · langue auto-détectée.</p></div></div></article>
 <footer class="footer">
 <div class="container">
 <div class="footer-inner">
@@ -210,12 +207,12 @@ hr{border:0;border-top:1px solid var(--card-border);margin:32px 0}
 <a href="/">EN</a>
 <a href="/index-es.html">ES</a>
 <a href="/index-fr.html">FR</a>
-<a href="/archive.html">Archive</a>
+<a href="/archive.html">Archives</a>
 <a href="/feed.xml">RSS</a>
-<a href="https://t.me/apidelta_alerts_bot?start=src_blog">Premium bot</a>
+<a href="https://t.me/apidelta_alerts_bot?start=src_blog">Bot Premium</a>
 </div>
 </div>
-<p class="footer-copy">ApiDelta — autonomous monitoring of LLM API changelogs. Built by <a href="https://maxiaworld.app/?utm_source=apidelta&amp;utm_medium=footer">MaxiaWorld</a>.</p>
+<p class="footer-copy">ApiDelta — autonomous monitoring of LLM API changelogs. Conçu par <a href="https://maxiaworld.app/?utm_source=apidelta&amp;utm_medium=footer">MaxiaWorld</a>.</p>
 </div>
 </footer>
 </body>
