@@ -5,50 +5,36 @@
 <link>https://apidelta.maxiaworld.app/</link>
 <atom:link href="https://apidelta.maxiaworld.app/feed.xml" rel="self" type="application/rss+xml"/>
 <description>Daily digest of changes across LLM APIs (Anthropic, OpenAI, Mistral, etc.).</description>
-<language>en-us</language>
-<lastBuildDate>Wed, 20 May 2026 07:00:35 +0000</lastBuildDate>
+<language>fr-fr</language>
+<lastBuildDate>Thu, 02 Jul 2026 13:23:22 +0000</lastBuildDate>
 
 <item>
-<title>ApiDelta — May 13, 2026</title>
-<link>https://apidelta.maxiaworld.app/issue/2026-05-13-en.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
-<guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-13-en.html</guid>
+<title>ApiDelta — 14 mai 2026</title>
+<link>https://apidelta.maxiaworld.app/issue/2026-05-14-fr.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
+<guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-14-fr.html</guid>
+<pubDate>Thu, 14 May 2026 08:00:00 +0000</pubDate>
+<description>Journée chargée côté outillage local et frameworks d'agents : deux releases Ollama majeures en préparation, des correctifs llama.cpp, et une migration API à anticiper dans pydantic...</description>
+</item>
+<item>
+<title>ApiDelta — 13 mai 2026</title>
+<link>https://apidelta.maxiaworld.app/issue/2026-05-13-fr.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
+<guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-13-fr.html</guid>
 <pubDate>Wed, 13 May 2026 08:00:00 +0000</pubDate>
-<description>Today's updates focus on new tool‑search capabilities, agent executor changes, a fast‑mode pricing tier for Claude Opus, and several library enhancements. Pydantic‑AI 1.95.0 introd...</description>
+<description>À retenir — Migrer pydantic-ai hors de `Agent(instrument=...)` avant le V2 de juin ; trois incidents Anthropic du 12 mai tous résolus. Trois incidents distincts ont touché la plate...</description>
 </item>
 <item>
-<title>ApiDelta — May 12, 2026</title>
-<link>https://apidelta.maxiaworld.app/issue/2026-05-12-en.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
-<guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-12-en.html</guid>
+<title>ApiDelta — 12 mai 2026</title>
+<link>https://apidelta.maxiaworld.app/issue/2026-05-12-fr.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
+<guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-12-fr.html</guid>
 <pubDate>Tue, 12 May 2026 08:00:00 +0000</pubDate>
-<description>Takeaway — Update `anthropic` to v0.101.0 for native AWS auth on Claude Platform; OpenAI resolved GPT-5.5 error spike across Chat Completions and Responses. Anthropic's Python SDK ...</description>
+<description>À retenir — Mets à jour `anthropic` en v0.101.0 pour le nouveau client AWS natif sur Claude Platform ; OpenAI a résolu un pic d'erreurs sur GPT-5.5 affectant Chat Completions et Re...</description>
 </item>
 <item>
-<title>ApiDelta — May 11, 2026</title>
-<link>https://apidelta.maxiaworld.app/issue/2026-05-11-en.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
-<guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-11-en.html</guid>
+<title>ApiDelta — 11 mai 2026</title>
+<link>https://apidelta.maxiaworld.app/issue/2026-05-11-fr.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
+<guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-11-fr.html</guid>
 <pubDate>Mon, 11 May 2026 08:00:00 +0000</pubDate>
-<description>Takeaway — Anthropic launches Claude API on AWS with native IAM auth; Mistral SDK v2.4.5 ships breaking changes in workflow response shapes. Three items today: Claude Platform goes...</description>
-</item>
-<item>
-<title>ApiDelta — May 10, 2026</title>
-<link>https://apidelta.maxiaworld.app/issue/2026-05-10-en.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
-<guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-10-en.html</guid>
-<pubDate>Sun, 10 May 2026 08:00:00 +0000</pubDate>
-<description>Mistral added a new model endpoint, Claude services recovered from several brief outages, and OpenAI reported resolved performance hiccups for Codex and the Responses API. Mistral ...</description>
-</item>
-<item>
-<title>ApiDelta — May 8, 2026</title>
-<link>https://apidelta.maxiaworld.app/issue/2026-05-08-en.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
-<guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-08-en.html</guid>
-<pubDate>Fri, 08 May 2026 08:00:00 +0000</pubDate>
-<description>Several LLM providers rolled out updates and resolved incidents, notably a new Mistral model and multiple Claude‑related error spikes. Mistral released the Small 3.2 model (model I...</description>
-</item>
-<item>
-<title>ApiDelta — May 7, 2026</title>
-<link>https://apidelta.maxiaworld.app/issue/2026-05-07-en.html?utm_source=rss&utm_medium=referral&utm_campaign=apidelta</link>
-<guid isPermaLink="true">https://apidelta.maxiaworld.app/issue/2026-05-07-en.html</guid>
-<pubDate>Thu, 07 May 2026 08:00:00 +0000</pubDate>
-<description>Anthropic expanded 1 M‑token context windows to GA models and added a rate‑limits endpoint, while several older Claude models are now retired; Mistral released Vibe 2.0 and updated...</description>
+<description>À retenir — Anthropic lance Claude Platform sur AWS avec IAM natif ; Mistral SDK Python v2.4.5 introduit des breaking changes dans les réponses des workflows. Trois points du jour ...</description>
 </item>
 </channel>
 </rss>
